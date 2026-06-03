@@ -1,0 +1,1 @@
+python3 cputest.py --target-cpu qx320f --opt 1 --config ./gitlab_config.yml --jobs 10 --testsuite ../testsuites/yarpgen/20250728_yarpgen196

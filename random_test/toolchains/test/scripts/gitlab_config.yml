@@ -1,0 +1,258 @@
+global:
+    test_home: ../testsuites
+    testcase_ext: [.c, .ll]
+
+testsuites:
+    app-bugs:
+    cpu0:
+        compile_only: true
+    csmith:
+        blacklist:
+            O0: ['test6.c', 'test8.c', 'test21.c', 'test23.c', 'test39.c', 'test42.c', 'test46.c']
+            O1: ['test6.c', 'test8.c', 'test21.c', 'test23.c', 'test39.c', 'test42.c', 'test46.c']
+            O2: ['test6.c', 'test8.c', 'test21.c', 'test23.c', 'test39.c', 'test42.c', 'test46.c']
+            O3: ['test6.c', 'test8.c', 'test21.c', 'test23.c', 'test39.c', 'test42.c', 'test46.c']
+    scalar:
+        blacklist:
+            O0: ['argtest.c', 'doubleArith.c', 'long_long_yhn.c', 'printf.c']
+            O1: ['argtest.c', 'doubleArith.c', 'long_long_yhn.c', 'printf.c']
+            O2: ['argtest.c', 'doubleArith.c', 'long_long_yhn.c', 'printf.c']
+            O3: ['argtest.c', 'doubleArith.c', 'long_long_yhn.c', 'printf.c']
+    x264:
+        compile_only: true
+
+
+cpus:
+    dspse:
+        toolchain_home: ../..
+        tool:
+            clang:
+                flags: 
+                    - -mfpmath=fp64
+                    # - -mllvm
+                    #- --verify-machineinstrs
+                include:
+                    - ../../include
+                    - ./dependency/include
+            llc:
+                flags: 
+                    - --verify-machineinstrs
+            lld:
+                simulator:
+                    linker_script: ../../lib/dspse/link_8slots.lds
+                    flags: ["-lm", "-lc", "-lrt", "-ldspsim", "-ldbgsim"]
+                    lib: [../../lib/dspse]
+                chip:
+                    linker_script: ../../lib/dspse/link_8slots.lds
+                    flags: ["-lm", "-lc", "-lrt", "-ldspsim", "-ldbgchip"]
+                    lib: [../../lib/dspse]
+            ld:
+                simulator:
+                    linker_script: ../../lib/dspse/link_8slots.x
+                    flags: ["-lm", "-lc", "-lrt", "-ldspsim", "-ldbgsim"]
+                    lib: [../../lib/dspse]
+                chip:
+                    linker_script: ../../lib/dspse/link_8slots.x
+                    flags: ["-lm", "-lc", "-lrt", "-ldspsim", "-ldbgchip"]
+                    lib: [../../lib/dspse]
+
+            simulator:
+                suffix: step13
+                flags: [-c,dspse]
+
+
+            trobjdat:
+                path: ./trobjdat_8slot.py
+                objcopy_dir: ../../tools
+
+    qxdsph001:
+        toolchain_home: ../..
+        tool:
+            clang:
+                flags: 
+                    - -mfpmath=fp64
+                    # - -mllvm
+                    #- --verify-machineinstrs
+                include:
+                    - ../../include
+                    - ./dependency/include
+            llc:
+                flags: 
+                    - --verify-machineinstrs
+            lld:
+                simulator:
+                    linker_script: ../../lib/qxdsph001/link_8slots.lds
+                    flags: ["-lm", "-lc", "-lrt", "-ldspsim", "-ldbgsim"]
+                    lib: [../../lib/qxdsph001]
+                chip:
+                    linker_script: ../../lib/qxdsph001/link_8slots.lds
+                    flags: ["-lm", "-lc", "-lrt", "-ldspsim", "-ldbgchip"]
+                    lib: [../../lib/qxdsph001]
+
+            ld:
+                simulator:
+                    linker_script: ../../lib/qxdsph001/link_8slots.x
+                    flags: ["-lm", "-lc", "-lrt", "-ldspsim", "-ldbgsim"]
+                    lib: [../../lib/qxdsph001]
+                chip:
+                    linker_script: ../../lib/qxdsph001/link_8slots.x
+                    flags: ["-lm", "-lc", "-lrt", "-ldspsim", "-ldbgchip"]
+                    lib: [../../lib/qxdsph001]
+                    
+            simulator:
+                suffix: iss
+                flags: [-c,qxdsph001]
+            trobjdat:
+                path: ./trobjdat_8slot.py
+                objcopy_dir: ../../tools
+
+    qx320f:
+        toolchain_home: ../..
+        tool:
+            clang:
+                flags: 
+                    - -mfpmath=fp64
+                    - -gdwarf-2
+                    - -mllvm
+                    - --verify-machineinstrs
+                include:
+                    - ../../include
+                    - ./dependency/include
+
+            llc:
+                flags: 
+                    - --verify-machineinstrs
+
+            lld:
+                simulator:
+                    linker_script: ../../lib/qx320f/link_8slots.lds
+                    flags: ["-lm", "-lc", "-lrt", "-ldspsim", "-ldbgsim"]
+                    lib: 
+                        - ../../lib/qx320f/fp64/
+                chip:
+                    linker_script: ../../lib/qx320f/ldscript_DSPCore0.lds
+                    flags: ["-lm", "-lc", "-lrt", "-ldspsim", "-ltimer", "-ldbgchip", "--no-check-sections"]
+                    lib: 
+                        - ../../lib/qx320f/fp64/
+                        - ./dependency/lib/
+
+            ld:
+                simulator:
+                    linker_script: ../../lib/qx320f/link_8slots.ld
+                    flags: ["-lm", "-lc", "-lrt", "-ldspsim", "-ldbgsim"]
+                    lib: 
+                        - ../../lib/qx320f/fp64/
+                chip:
+                    linker_script: ../../lib/qx320f/ldscript_DSPCore0.ld
+                    flags: ["-lm", "-lc", "-lrt", "-ldspsim", "-ltimer", "-ldbgchip"]
+                    lib: 
+                        - ../../lib/qx320f/fp64/
+                        - ./dependency/lib/
+
+            simulator:
+                suffix: step13
+                flags: [-c, qx320f]
+
+            proxy:
+                flags: []
+
+            trobjdat:
+                path: ./trobjdat_8slot.py
+                objcopy_dir: ../../tools
+
+    qx320f049v2:
+        toolchain_home: ../..
+        tool:
+            clang:
+                flags: 
+                    - -mfpmath=fp64
+                    - -gdwarf-2
+                    - -mllvm
+                    - --verify-machineinstrs
+                include:
+                    - ../../include
+                    - ./dependency/include
+
+            llc:
+                flags: 
+                    - --verify-machineinstrs
+
+            lld:
+                simulator:
+                    linker_script: ../../lib/qx320f049v2/link_8slots.lds
+                    flags: ["-lm", "-lc", "-lrt", "-ldspsim", "-ldbgsim"]
+                    lib: 
+                        - ../../lib/qx320f049v2/fp64/
+                chip:
+                    linker_script: ../../lib/qx320f049v2/ldscript_DSPCore0.lds
+                    flags: ["-lm", "-lc", "-lrt", "-ldspsim", "-ltimer", "-ldbgchip", "-lqxboot", "--no-check-sections"]
+                    lib: 
+                        - ../../lib/qx320f049v2/fp64/
+                        - ./dependency/lib/
+
+            ld:
+                simulator:
+                    linker_script: ../../lib/qx320f049v2/link_8slots.ld
+                    flags: ["-lm", "-lc", "-lrt", "-ldspsim", "-ldbgsim"]
+                    lib: 
+                        - ../../lib/qx320f049v2/fp64/
+                chip:
+                    linker_script: ../../lib/qx320f049v2/ldscript_DSPCore0.ld
+                    flags: ["-lm", "-lc", "-lrt", "-ldspsim", "-ltimer", "-ldbgchip", "-lqxboot"]
+                    lib: 
+                        - ../../lib/qx320f049v2/fp64/
+                        - ./dependency/lib/
+
+            simulator:
+                suffix: step13
+                flags: [-c, qx320f]
+
+            proxy:
+                flags: ["--c0ibase", "0x00010000", "--c0isize", "0x00058000"]
+
+            trobjdat:
+                path: ./trobjdat_8slot.py
+                objcopy_dir: ../../tools
+
+    dsph5:
+        toolchain_home: ../..
+        tool:
+            clang:
+                flags: 
+                    - -mfpmath=fp64
+                    # - -mllvm
+                    #- --verify-machineinstrs
+                include:
+                    - ../../include
+                    - ./dependency/include
+            llc:
+                flags: 
+                    - --verify-machineinstrs
+
+            lld:
+                simulator:
+                    linker_script: ../../lib/dsph5/link_8slots.lds
+                    flags: ["-lc", "-lrt", "-ldspsim"]
+                    lib: [../../lib/dsph5]
+                chip:
+                    linker_script: ../../lib/dsph5/link_8slots.lds
+                    flags: ["-lc", "-lrt", "-ldspsim"]
+                    lib: [../../lib/dsph5]
+
+            ld:
+                simulator:
+                    linker_script: ../../lib/dsph5/link_8slots.x
+                    flags: ["-lc", "-lrt", "-ldspsim"]
+                    lib: [../../lib/dsph5]
+                chip:
+                    linker_script: ../../lib/dsph5/link_8slots.x
+                    flags: ["-lc", "-lrt", "-ldspsim"]
+                    lib: [../../lib/dsph5]
+
+            simulator:
+                suffix: iss
+                flags: [-c,dsph5]
+
+            trobjdat:
+                path: ./trobjdat_5slot.py
+                objcopy_dir: ../../toolchain_5slot/bin/

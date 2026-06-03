@@ -1,0 +1,20 @@
+global_config:
+  tmp_dir_base: "../tmp"
+  config_file: "./gitlab_config.yml"
+  verbose: true
+
+tcpu_tests:
+  - tcpu: dspse
+    optimization_levels: [O0, O1, O2, O3]
+    testsuits: ["scalar", "vector", "app-bugs"]
+  - tcpu: qxdsph001
+    optimization_levels: [O0, O1, O2, O3]
+    testsuits: ["scalar", "app-bugs"]
+  - tcpu: qx320f
+    optimization_levels: [O0, O1, O2, O3]
+    testsuits: ["scalar", "app-bugs"]
+  - tcpu: dsph5
+    optimization_levels: [O0, O1, O2, O3]
+    testsuits: ["scalar"]
+
+

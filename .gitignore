@@ -1,0 +1,12 @@
+output/*
+!output/.gitkeep
+__pycache__/
+*.pyc
+*.log
+*.zip
+build/
+dist/
+*.spec
+ui_settings.json
+_not_upload_scripts/
+bug_examples/

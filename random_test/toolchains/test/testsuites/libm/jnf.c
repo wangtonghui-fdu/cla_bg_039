@@ -1,0 +1,16 @@
+#include <swift_debug.h>
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdarg.h>
+
+int main(void) {
+     float x = 3.14f;
+     float y = 2.71f;
+     float z;
+     z = jnf((int)y, x);
+    unsigned ans = 0x3ef88fdc;
+    dbg_compare_float(z, *(float *)&ans);
+    return 0;
+}

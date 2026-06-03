@@ -1,0 +1,2253 @@
+Archive member included because of file (symbol)
+
+../libv2/libprintf.a(ee_printf.o)
+                              autotests/cla/bgtask_interrupt.o (puts)
+../libv2/libm.a(lib_a-sf_modf.o)
+                              ../libv2/libprintf.a(ee_printf.o) (modf)
+../libv2/libm.a(lib_a-sf_fpclassify.o)
+                              ../libv2/libm.a(lib_a-sf_modf.o) (__fpclassifyf)
+../libv2/libc.a(lib_a-rand.o)
+                              autotests/cla/bgtask_interrupt.o (rand)
+../libv2/libc.a(lib_a-impure.o)
+                              ../libv2/libc.a(lib_a-rand.o) (_impure_ptr)
+../libv2/librt.a(udivsi3.o)   device/driverlib/i2c.o (__udivsi3)
+
+Discarded input sections
+
+ .text          0x0000000000000000        0x0 autotests/cla/bgtask_interrupt.o
+ .bss.sum       0x0000000000000000        0x4 autotests/cla/bgtask_interrupt.o
+ .llvm_addrsig  0x0000000000000000       0x1e autotests/cla/bgtask_interrupt.o
+ .text          0x0000000000000000        0x0 autotests/cla/subcommon.o
+ .text.cla_interrupt_init
+                0x0000000000000000      0x1c0 autotests/cla/subcommon.o
+ .text.Interrupt_register
+                0x0000000000000000       0x70 autotests/cla/subcommon.o
+ .bss.cla1cnt   0x0000000000000000        0x4 autotests/cla/subcommon.o
+ .bss.cla2cnt   0x0000000000000000        0x4 autotests/cla/subcommon.o
+ .bss.cla3cnt   0x0000000000000000        0x4 autotests/cla/subcommon.o
+ .bss.cla4cnt   0x0000000000000000        0x4 autotests/cla/subcommon.o
+ .bss.cla5cnt   0x0000000000000000        0x4 autotests/cla/subcommon.o
+ .bss.cla6cnt   0x0000000000000000        0x4 autotests/cla/subcommon.o
+ .bss.cla7cnt   0x0000000000000000        0x4 autotests/cla/subcommon.o
+ .bss.cla8cnt   0x0000000000000000        0x4 autotests/cla/subcommon.o
+ .bss.num       0x0000000000000000        0x4 autotests/cla/subcommon.o
+ .llvm_addrsig  0x0000000000000000       0x26 autotests/cla/subcommon.o
+ .text          0x0000000000000000        0x0 autotests/common.o
+ .text.simple_delay
+                0x0000000000000000       0x80 autotests/common.o
+ .text.verify_data_byte
+                0x0000000000000000      0x110 autotests/common.o
+ .text.buf_dump
+                0x0000000000000000      0x2c0 autotests/common.o
+ .rodata.str1.1
+                0x0000000000000000       0xd2 autotests/common.o
+ .llvm_addrsig  0x0000000000000000       0x14 autotests/common.o
+ .text          0x0000000000000000        0x0 cla_task.o
+ .llvm_addrsig  0x0000000000000000        0x8 cla_task.o
+ .text          0x0000000000000000        0x0 device/device.o
+ .text.Device_enableAllPeripherals
+                0x0000000000000000      0x340 device/device.o
+ .text.SysCtl_enablePeripheral
+                0x0000000000000000       0x70 device/device.o
+ .text.Device_initGPIO
+                0x0000000000000000       0x70 device/device.o
+ .text.GPIO_unlockPortConfig
+                0x0000000000000000       0x60 device/device.o
+ .rodata.cst4   0x0000000000000000        0x4 device/device.o
+ .text.Device_verifyXTAL
+                0x0000000000000000       0xf0 device/device.o
+ .text.SysCtl_turnOnOsc
+                0x0000000000000000       0xf0 device/device.o
+ .text.SysCtl_clearExternalOscCounterValue
+                0x0000000000000000       0x30 device/device.o
+ .text.SysCtl_getExternalOscCounterValue
+                0x0000000000000000       0x30 device/device.o
+ .text.__error__
+                0x0000000000000000       0x20 device/device.o
+ .llvm_addrsig  0x0000000000000000       0x11 device/device.o
+ .text          0x0000000000000000        0x0 device/driverlib/adc.o
+ .text.ADC_setVREF
+                0x0000000000000000      0x100 device/driverlib/adc.o
+ .text.ADC_setPPBTripLimits
+                0x0000000000000000       0xd0 device/driverlib/adc.o
+ .debug_abbrev  0x0000000000000000       0x90 device/driverlib/adc.o
+ .debug_info    0x0000000000000000      0x195 device/driverlib/adc.o
+ .debug_ranges  0x0000000000000000       0x18 device/driverlib/adc.o
+ .debug_str     0x0000000000000000      0x285 device/driverlib/adc.o
+ .debug_frame   0x0000000000000000       0x38 device/driverlib/adc.o
+ .debug_line    0x0000000000000000      0x12e device/driverlib/adc.o
+ .llvm_addrsig  0x0000000000000000        0x0 device/driverlib/adc.o
+ .text          0x0000000000000000        0x0 device/driverlib/aes.o
+ .text.AES_configureModule
+                0x0000000000000000       0x70 device/driverlib/aes.o
+ .text.AES_setKey1
+                0x0000000000000000      0x100 device/driverlib/aes.o
+ .text.AES_setKey2
+                0x0000000000000000      0x100 device/driverlib/aes.o
+ .text.AES_setKey3
+                0x0000000000000000       0x60 device/driverlib/aes.o
+ .text.AES_setInitializationVector
+                0x0000000000000000       0x60 device/driverlib/aes.o
+ .text.AES_readInitializationVector
+                0x0000000000000000       0x60 device/driverlib/aes.o
+ .text.AES_readTag
+                0x0000000000000000       0xc0 device/driverlib/aes.o
+ .text.AES_readDataNonBlocking
+                0x0000000000000000       0xc0 device/driverlib/aes.o
+ .text.AES_readDataBlocking
+                0x0000000000000000       0xa0 device/driverlib/aes.o
+ .text.AES_writeDataNonBlocking
+                0x0000000000000000       0xd0 device/driverlib/aes.o
+ .text.AES_writeDataBlocking
+                0x0000000000000000       0xb0 device/driverlib/aes.o
+ .text.AES_processData
+                0x0000000000000000      0x160 device/driverlib/aes.o
+ .text.AES_setDataLength
+                0x0000000000000000       0x40 device/driverlib/aes.o
+ .text.AES_authenticateData
+                0x0000000000000000      0x130 device/driverlib/aes.o
+ .text.AES_processDatainAuthMode
+                0x0000000000000000      0x200 device/driverlib/aes.o
+ .text.AES_setAuthDataLength
+                0x0000000000000000       0x30 device/driverlib/aes.o
+ .text.AES_getInterruptStatus
+                0x0000000000000000       0xa0 device/driverlib/aes.o
+ .debug_abbrev  0x0000000000000000      0x118 device/driverlib/aes.o
+ .debug_info    0x0000000000000000      0x6de device/driverlib/aes.o
+ .debug_ranges  0x0000000000000000       0x90 device/driverlib/aes.o
+ .debug_str     0x0000000000000000      0x61d device/driverlib/aes.o
+ .debug_frame   0x0000000000000000      0x170 device/driverlib/aes.o
+ .debug_line    0x0000000000000000      0x69b device/driverlib/aes.o
+ .llvm_addrsig  0x0000000000000000        0x8 device/driverlib/aes.o
+ .text          0x0000000000000000        0x0 device/driverlib/asysctl.o
+ .llvm_addrsig  0x0000000000000000        0x0 device/driverlib/asysctl.o
+ .text          0x0000000000000000        0x0 device/driverlib/bgcrc.o
+ .llvm_addrsig  0x0000000000000000        0x0 device/driverlib/bgcrc.o
+ .text          0x0000000000000000        0x0 device/driverlib/can.o
+ .text.CAN_initModule
+                0x0000000000000000      0x130 device/driverlib/can.o
+ .text.CAN_initParameterCheck
+                0x0000000000000000       0x60 device/driverlib/can.o
+ .text.CANFD_config
+                0x0000000000000000       0x90 device/driverlib/can.o
+ .text.CAN_structInit
+                0x0000000000000000       0x60 device/driverlib/can.o
+ .text.CANFD_structInit
+                0x0000000000000000       0x70 device/driverlib/can.o
+ .text.CAN_setBitTimingSlow
+                0x0000000000000000       0x90 device/driverlib/can.o
+ .text.CANFD_setBitTimingFast
+                0x0000000000000000       0xa0 device/driverlib/can.o
+ .text.CAN_setAcceptFilter
+                0x0000000000000000       0xc0 device/driverlib/can.o
+ .text.CAN_filterCmd
+                0x0000000000000000       0xa0 device/driverlib/can.o
+ .text.CAN_getStatus
+                0x0000000000000000      0x1d0 device/driverlib/can.o
+ .text.CAN_clearInterruptStatus
+                0x0000000000000000       0x90 device/driverlib/can.o
+ .text.CAN_getTxBufStatus
+                0x0000000000000000       0x30 device/driverlib/can.o
+ .text.CAN_getRxBufStatus
+                0x0000000000000000       0x30 device/driverlib/can.o
+ .text.CAN_getErrorInfo
+                0x0000000000000000       0xa0 device/driverlib/can.o
+ .text.CAN_setRxWarnLimit
+                0x0000000000000000       0x40 device/driverlib/can.o
+ .text.CAN_setErrorWarnLimit
+                0x0000000000000000       0x40 device/driverlib/can.o
+ .text.CAN_startTx
+                0x0000000000000000       0x30 device/driverlib/can.o
+ .text.CAN_abortTx
+                0x0000000000000000       0x60 device/driverlib/can.o
+ .text.CAN_fillMessage
+                0x0000000000000000      0x2a0 device/driverlib/can.o
+ .text.CAN_isTransmitterBusy
+                0x0000000000000000       0x30 device/driverlib/can.o
+ .text.CAN_writeDataReg
+                0x0000000000000000      0x240 device/driverlib/can.o
+ .text.CAN_fillRemoteRequestMessage
+                0x0000000000000000      0x290 device/driverlib/can.o
+ .text.CAN_readMessage
+                0x0000000000000000       0xb0 device/driverlib/can.o
+ .text.CAN_readDataReg
+                0x0000000000000000       0xe0 device/driverlib/can.o
+ .text.CAN_readMessageWithID
+                0x0000000000000000      0x150 device/driverlib/can.o
+ .text.CAN_enableInterrupt
+                0x0000000000000000       0x40 device/driverlib/can.o
+ .text.CAN_disableInterrupt
+                0x0000000000000000       0x50 device/driverlib/can.o
+ .rodata.$__const.CAN_abortTx.txAbort
+                0x0000000000000000        0x2 device/driverlib/can.o
+ .rodata.myDLC2Size
+                0x0000000000000000       0x10 device/driverlib/can.o
+ .debug_abbrev  0x0000000000000000      0x1fc device/driverlib/can.o
+ .debug_info    0x0000000000000000     0x1f9d device/driverlib/can.o
+ .debug_ranges  0x0000000000000000       0xe0 device/driverlib/can.o
+ .debug_str     0x0000000000000000      0xfb5 device/driverlib/can.o
+ .debug_frame   0x0000000000000000      0x244 device/driverlib/can.o
+ .debug_line    0x0000000000000000      0xa80 device/driverlib/can.o
+ .llvm_addrsig  0x0000000000000000        0x8 device/driverlib/can.o
+ .text          0x0000000000000000        0x0 device/driverlib/cla.o
+ .llvm_addrsig  0x0000000000000000        0x0 device/driverlib/cla.o
+ .text          0x0000000000000000        0x0 device/driverlib/clb.o
+ .text.CLB_configCounterLoadMatch
+                0x0000000000000000      0x1d0 device/driverlib/clb.o
+ .text.CLB_writeInterface
+                0x0000000000000000       0x50 device/driverlib/clb.o
+ .text.CLB_clearFIFOs
+                0x0000000000000000       0xa0 device/driverlib/clb.o
+ .text.CLB_writeFIFOs
+                0x0000000000000000       0x80 device/driverlib/clb.o
+ .text.CLB_readFIFOs
+                0x0000000000000000       0x60 device/driverlib/clb.o
+ .debug_abbrev  0x0000000000000000       0xb9 device/driverlib/clb.o
+ .debug_info    0x0000000000000000      0x1b7 device/driverlib/clb.o
+ .debug_ranges  0x0000000000000000       0x30 device/driverlib/clb.o
+ .debug_str     0x0000000000000000      0x1dc device/driverlib/clb.o
+ .debug_frame   0x0000000000000000       0x7c device/driverlib/clb.o
+ .debug_line    0x0000000000000000      0x1fe device/driverlib/clb.o
+ .llvm_addrsig  0x0000000000000000        0x2 device/driverlib/clb.o
+ .text          0x0000000000000000        0x0 device/driverlib/cmpss.o
+ .text.CMPSS_configFilterHigh
+                0x0000000000000000       0x80 device/driverlib/cmpss.o
+ .text.CMPSS_configFilterLow
+                0x0000000000000000       0x80 device/driverlib/cmpss.o
+ .text.CMPSS_configLatchOnPWMSYNC
+                0x0000000000000000       0xf0 device/driverlib/cmpss.o
+ .text.CMPSS_configRamp
+                0x0000000000000000       0xf0 device/driverlib/cmpss.o
+ .debug_abbrev  0x0000000000000000       0x6d device/driverlib/cmpss.o
+ .debug_info    0x0000000000000000      0x1b6 device/driverlib/cmpss.o
+ .debug_ranges  0x0000000000000000       0x28 device/driverlib/cmpss.o
+ .debug_str     0x0000000000000000      0x1fb device/driverlib/cmpss.o
+ .debug_frame   0x0000000000000000       0x60 device/driverlib/cmpss.o
+ .debug_line    0x0000000000000000      0x1cc device/driverlib/cmpss.o
+ .llvm_addrsig  0x0000000000000000        0x0 device/driverlib/cmpss.o
+ .text          0x0000000000000000        0x0 device/driverlib/cputimer.o
+ .llvm_addrsig  0x0000000000000000        0x0 device/driverlib/cputimer.o
+ .text          0x0000000000000000        0x0 device/driverlib/dac.o
+ .rodata.cst4   0x0000000000000000        0x4 device/driverlib/dac.o
+ .text.DAC_tuneOffsetTrim
+                0x0000000000000000       0xa0 device/driverlib/dac.o
+ .debug_abbrev  0x0000000000000000       0x6d device/driverlib/dac.o
+ .debug_info    0x0000000000000000       0xc5 device/driverlib/dac.o
+ .debug_str     0x0000000000000000      0x179 device/driverlib/dac.o
+ .debug_frame   0x0000000000000000       0x24 device/driverlib/dac.o
+ .debug_line    0x0000000000000000       0xc5 device/driverlib/dac.o
+ .llvm_addrsig  0x0000000000000000        0x0 device/driverlib/dac.o
+ .text          0x0000000000000000        0x0 device/driverlib/dcc.o
+ .rodata.cst4   0x0000000000000000       0x30 device/driverlib/dcc.o
+ .text.DCC_verifyClockFrequency
+                0x0000000000000000      0x3d0 device/driverlib/dcc.o
+ .text.DCC_clearErrorFlag
+                0x0000000000000000       0x30 device/driverlib/dcc.o
+ .text.DCC_clearDoneFlag
+                0x0000000000000000       0x30 device/driverlib/dcc.o
+ .text.DCC_disableModule
+                0x0000000000000000       0x40 device/driverlib/dcc.o
+ .text.DCC_disableErrorSignal
+                0x0000000000000000       0x40 device/driverlib/dcc.o
+ .text.DCC_disableDoneSignal
+                0x0000000000000000       0x40 device/driverlib/dcc.o
+ .text.DCC_setCounter0ClkSource
+                0x0000000000000000       0x50 device/driverlib/dcc.o
+ .text.DCC_setCounter1ClkSource
+                0x0000000000000000       0x50 device/driverlib/dcc.o
+ .text.DCC_setCounterSeeds
+                0x0000000000000000       0xb0 device/driverlib/dcc.o
+ .text.DCC_enableSingleShotMode
+                0x0000000000000000       0xb0 device/driverlib/dcc.o
+ .text.DCC_enableErrorSignal
+                0x0000000000000000       0x40 device/driverlib/dcc.o
+ .text.DCC_enableDoneSignal
+                0x0000000000000000       0x40 device/driverlib/dcc.o
+ .text.DCC_enableModule
+                0x0000000000000000       0x40 device/driverlib/dcc.o
+ .text.DCC_getSingleShotStatus
+                0x0000000000000000       0x30 device/driverlib/dcc.o
+ .text.DCC_getErrorStatus
+                0x0000000000000000       0x30 device/driverlib/dcc.o
+ .text.DCC_measureClockFrequency
+                0x0000000000000000      0x330 device/driverlib/dcc.o
+ .text.DCC_getCounter1Value
+                0x0000000000000000       0x20 device/driverlib/dcc.o
+ .text.DCC_continuousMonitor
+                0x0000000000000000      0x2b0 device/driverlib/dcc.o
+ .text.DCC_disableSingleShotMode
+                0x0000000000000000       0x40 device/driverlib/dcc.o
+ .debug_abbrev  0x0000000000000000       0xf3 device/driverlib/dcc.o
+ .debug_info    0x0000000000000000      0x657 device/driverlib/dcc.o
+ .debug_ranges  0x0000000000000000       0xa0 device/driverlib/dcc.o
+ .debug_str     0x0000000000000000      0x565 device/driverlib/dcc.o
+ .debug_frame   0x0000000000000000      0x198 device/driverlib/dcc.o
+ .debug_line    0x0000000000000000      0x733 device/driverlib/dcc.o
+ .llvm_addrsig  0x0000000000000000       0x10 device/driverlib/dcc.o
+ .text          0x0000000000000000        0x0 device/driverlib/dcsm.o
+ .text.DCSM_unlockZone1CSM
+                0x0000000000000000      0x1f0 device/driverlib/dcsm.o
+ .text.DCSM_unlockZone2CSM
+                0x0000000000000000      0x1f0 device/driverlib/dcsm.o
+ .text.DCSM_getZone1FlashEXEStatus
+                0x0000000000000000       0xe0 device/driverlib/dcsm.o
+ .text.DCSM_getFlashSectorZone
+                0x0000000000000000       0xb0 device/driverlib/dcsm.o
+ .text.DCSM_getZone1RAMEXEStatus
+                0x0000000000000000       0xa0 device/driverlib/dcsm.o
+ .text.DCSM_getRAMZone
+                0x0000000000000000       0x50 device/driverlib/dcsm.o
+ .text.DCSM_getZone2FlashEXEStatus
+                0x0000000000000000       0xe0 device/driverlib/dcsm.o
+ .text.DCSM_getZone2RAMEXEStatus
+                0x0000000000000000       0xa0 device/driverlib/dcsm.o
+ .text.DCSM_claimZoneSemaphore
+                0x0000000000000000       0x60 device/driverlib/dcsm.o
+ .text.DCSM_releaseZoneSemaphore
+                0x0000000000000000       0x50 device/driverlib/dcsm.o
+ .text.DCSM_setConfig
+                0x0000000000000000       0x40 device/driverlib/dcsm.o
+ .debug_abbrev  0x0000000000000000      0x11a device/driverlib/dcsm.o
+ .debug_info    0x0000000000000000      0x51f device/driverlib/dcsm.o
+ .debug_ranges  0x0000000000000000       0x60 device/driverlib/dcsm.o
+ .debug_str     0x0000000000000000      0x6aa device/driverlib/dcsm.o
+ .debug_frame   0x0000000000000000       0xfc device/driverlib/dcsm.o
+ .debug_line    0x0000000000000000      0x497 device/driverlib/dcsm.o
+ .llvm_addrsig  0x0000000000000000        0x2 device/driverlib/dcsm.o
+ .text          0x0000000000000000        0x0 device/driverlib/dma.o
+ .text.DMA_configAddresses
+                0x0000000000000000       0x60 device/driverlib/dma.o
+ .text.DMA_configBurst
+                0x0000000000000000       0x60 device/driverlib/dma.o
+ .text.DMA_configTransfer
+                0x0000000000000000       0x60 device/driverlib/dma.o
+ .text.DMA_configWrap
+                0x0000000000000000       0x70 device/driverlib/dma.o
+ .text.DMA_configMode
+                0x0000000000000000      0x330 device/driverlib/dma.o
+ .text.DMA_configChannel
+                0x0000000000000000      0x1b0 device/driverlib/dma.o
+ .text.DMA_enableTrigger
+                0x0000000000000000       0x30 device/driverlib/dma.o
+ .text.DMA_setInterruptMode
+                0x0000000000000000       0x80 device/driverlib/dma.o
+ .text.DMA_enableInterrupt
+                0x0000000000000000       0x30 device/driverlib/dma.o
+ .text.DMA_disableInterrupt
+                0x0000000000000000       0x40 device/driverlib/dma.o
+ .debug_abbrev  0x0000000000000000       0xed device/driverlib/dma.o
+ .debug_info    0x0000000000000000      0x644 device/driverlib/dma.o
+ .debug_ranges  0x0000000000000000       0x58 device/driverlib/dma.o
+ .debug_str     0x0000000000000000      0xa99 device/driverlib/dma.o
+ .debug_frame   0x0000000000000000       0xdc device/driverlib/dma.o
+ .debug_line    0x0000000000000000      0x4a7 device/driverlib/dma.o
+ .llvm_addrsig  0x0000000000000000        0xe device/driverlib/dma.o
+ .text          0x0000000000000000        0x0 device/driverlib/dma_dw.o
+ .llvm_addrsig  0x0000000000000000        0x0 device/driverlib/dma_dw.o
+ .text          0x0000000000000000        0x0 device/driverlib/ecap.o
+ .text.ECAP_setEmulationMode
+                0x0000000000000000       0x50 device/driverlib/ecap.o
+ .debug_abbrev  0x0000000000000000       0x74 device/driverlib/ecap.o
+ .debug_info    0x0000000000000000       0xab device/driverlib/ecap.o
+ .debug_str     0x0000000000000000      0x191 device/driverlib/ecap.o
+ .debug_frame   0x0000000000000000       0x24 device/driverlib/ecap.o
+ .debug_line    0x0000000000000000       0xa1 device/driverlib/ecap.o
+ .llvm_addrsig  0x0000000000000000        0x0 device/driverlib/ecap.o
+ .text          0x0000000000000000        0x0 device/driverlib/epg.o
+ .text.EPG_selectEPGDataOut
+                0x0000000000000000       0x80 device/driverlib/epg.o
+ .debug_abbrev  0x0000000000000000       0x81 device/driverlib/epg.o
+ .debug_info    0x0000000000000000      0x107 device/driverlib/epg.o
+ .debug_str     0x0000000000000000      0x232 device/driverlib/epg.o
+ .debug_frame   0x0000000000000000       0x24 device/driverlib/epg.o
+ .debug_line    0x0000000000000000       0xb7 device/driverlib/epg.o
+ .llvm_addrsig  0x0000000000000000        0x0 device/driverlib/epg.o
+ .text          0x0000000000000000        0x0 device/driverlib/epwm.o
+ .text.EPWM_setEmulationMode
+                0x0000000000000000       0x40 device/driverlib/epwm.o
+ .rodata.cst4   0x0000000000000000        0x8 device/driverlib/epwm.o
+ .text.EPWM_configureSignal
+                0x0000000000000000      0x890 device/driverlib/epwm.o
+ .text.EPWM_setClockPrescaler
+                0x0000000000000000       0x50 device/driverlib/epwm.o
+ .text.EPWM_setTimeBaseCounterMode
+                0x0000000000000000       0x40 device/driverlib/epwm.o
+ .text.EPWM_setTimeBasePeriod
+                0x0000000000000000       0x30 device/driverlib/epwm.o
+ .text.EPWM_disablePhaseShiftLoad
+                0x0000000000000000       0x30 device/driverlib/epwm.o
+ .text.EPWM_setPhaseShift
+                0x0000000000000000       0x40 device/driverlib/epwm.o
+ .text.EPWM_setTimeBaseCounter
+                0x0000000000000000       0x30 device/driverlib/epwm.o
+ .text.EPWM_setCounterCompareShadowLoadMode
+                0x0000000000000000      0x120 device/driverlib/epwm.o
+ .text.EPWM_setCounterCompareValue
+                0x0000000000000000       0xc0 device/driverlib/epwm.o
+ .text.EPWM_setActionQualifierAction
+                0x0000000000000000      0x110 device/driverlib/epwm.o
+ .debug_abbrev  0x0000000000000000       0xef device/driverlib/epwm.o
+ .debug_info    0x0000000000000000      0x601 device/driverlib/epwm.o
+ .debug_ranges  0x0000000000000000       0x60 device/driverlib/epwm.o
+ .debug_str     0x0000000000000000      0x9e2 device/driverlib/epwm.o
+ .debug_frame   0x0000000000000000       0xf0 device/driverlib/epwm.o
+ .debug_line    0x0000000000000000      0x5ef device/driverlib/epwm.o
+ .llvm_addrsig  0x0000000000000000        0x9 device/driverlib/epwm.o
+ .text          0x0000000000000000        0x0 device/driverlib/eqep.o
+ .text.EQEP_setCompareConfig
+                0x0000000000000000       0xa0 device/driverlib/eqep.o
+ .text.EQEP_setInputPolarity
+                0x0000000000000000      0x1c0 device/driverlib/eqep.o
+ .debug_abbrev  0x0000000000000000       0x6d device/driverlib/eqep.o
+ .debug_info    0x0000000000000000      0x11a device/driverlib/eqep.o
+ .debug_ranges  0x0000000000000000       0x18 device/driverlib/eqep.o
+ .debug_str     0x0000000000000000      0x1a1 device/driverlib/eqep.o
+ .debug_frame   0x0000000000000000       0x38 device/driverlib/eqep.o
+ .debug_line    0x0000000000000000      0x141 device/driverlib/eqep.o
+ .llvm_addrsig  0x0000000000000000        0x0 device/driverlib/eqep.o
+ .text          0x0000000000000000        0x0 device/driverlib/erad.o
+ .text.ERAD_configBusComp
+                0x0000000000000000       0x90 device/driverlib/erad.o
+ .text.ERAD_configCounterInCountingMode
+                0x0000000000000000      0x100 device/driverlib/erad.o
+ .text.ERAD_configCounterInStartStopMode
+                0x0000000000000000      0x130 device/driverlib/erad.o
+ .text.ERAD_profile
+                0x0000000000000000      0x250 device/driverlib/erad.o
+ .text.ERAD_clearBusCompEvent
+                0x0000000000000000       0x30 device/driverlib/erad.o
+ .text.ERAD_clearCounterEvent
+                0x0000000000000000       0x30 device/driverlib/erad.o
+ .text.ERAD_clearCounterOverflow
+                0x0000000000000000       0x30 device/driverlib/erad.o
+ .text.ERAD_resetCounter
+                0x0000000000000000       0x40 device/driverlib/erad.o
+ .text.ERAD_enableModules
+                0x0000000000000000       0x40 device/driverlib/erad.o
+ .text.ERAD_enableInterruptOnAddressHit
+                0x0000000000000000       0xd0 device/driverlib/erad.o
+ .text.ERAD_countAddressHits
+                0x0000000000000000      0x1b0 device/driverlib/erad.o
+ .debug_abbrev  0x0000000000000000       0xe3 device/driverlib/erad.o
+ .debug_info    0x0000000000000000      0x56c device/driverlib/erad.o
+ .debug_ranges  0x0000000000000000       0x60 device/driverlib/erad.o
+ .debug_str     0x0000000000000000      0x734 device/driverlib/erad.o
+ .debug_frame   0x0000000000000000       0xf8 device/driverlib/erad.o
+ .debug_line    0x0000000000000000      0x414 device/driverlib/erad.o
+ .llvm_addrsig  0x0000000000000000        0xb device/driverlib/erad.o
+ .text          0x0000000000000000        0x0 device/driverlib/flash.o
+ .text.Flash_initModule
+                0x0000000000000000       0x90 device/driverlib/flash.o
+ .text.Flash_setClkDiv
+                0x0000000000000000       0x30 device/driverlib/flash.o
+ .text.Flash_eraseSector
+                0x0000000000000000      0x150 device/driverlib/flash.o
+ .text.Flash_eraseBlock
+                0x0000000000000000      0x120 device/driverlib/flash.o
+ .text.Flash_eraseChip
+                0x0000000000000000      0x110 device/driverlib/flash.o
+ .text.Flash_eraseOTP
+                0x0000000000000000      0x120 device/driverlib/flash.o
+ .text.Flash_enableQspiMode
+                0x0000000000000000       0x70 device/driverlib/flash.o
+ .text.Flash_disableQspiMode
+                0x0000000000000000       0x70 device/driverlib/flash.o
+ .debug_abbrev  0x0000000000000000       0xa6 device/driverlib/flash.o
+ .debug_info    0x0000000000000000      0x161 device/driverlib/flash.o
+ .debug_ranges  0x0000000000000000       0x48 device/driverlib/flash.o
+ .debug_str     0x0000000000000000      0x206 device/driverlib/flash.o
+ .debug_frame   0x0000000000000000       0xa8 device/driverlib/flash.o
+ .debug_line    0x0000000000000000      0x29f device/driverlib/flash.o
+ .llvm_addrsig  0x0000000000000000        0x5 device/driverlib/flash.o
+ .text          0x0000000000000000        0x0 device/driverlib/fsi.o
+ .text.FSI_resetTxModule
+                0x0000000000000000       0xf0 device/driverlib/fsi.o
+ .text.FSI_clearTxModuleReset
+                0x0000000000000000      0x100 device/driverlib/fsi.o
+ .text.FSI_writeTxBuffer
+                0x0000000000000000      0x110 device/driverlib/fsi.o
+ .text.FSI_resetRxModule
+                0x0000000000000000       0xf0 device/driverlib/fsi.o
+ .text.FSI_clearRxModuleReset
+                0x0000000000000000      0x100 device/driverlib/fsi.o
+ .text.FSI_readRxBuffer
+                0x0000000000000000      0x110 device/driverlib/fsi.o
+ .text.FSI_configRxDelayLine
+                0x0000000000000000      0x130 device/driverlib/fsi.o
+ .text.FSI_performTxInitialization
+                0x0000000000000000      0x140 device/driverlib/fsi.o
+ .text.FSI_selectTxPLLClock
+                0x0000000000000000       0x30 device/driverlib/fsi.o
+ .text.FSI_setTxStartMode
+                0x0000000000000000       0x50 device/driverlib/fsi.o
+ .text.FSI_configPrescalar
+                0x0000000000000000       0x60 device/driverlib/fsi.o
+ .text.FSI_delayWait
+                0x0000000000000000       0x70 device/driverlib/fsi.o
+ .text.FSI_enableTxClock
+                0x0000000000000000       0x30 device/driverlib/fsi.o
+ .text.FSI_clearTxEvents
+                0x0000000000000000       0x40 device/driverlib/fsi.o
+ .text.FSI_performRxInitialization
+                0x0000000000000000       0x80 device/driverlib/fsi.o
+ .text.FSI_clearRxEvents
+                0x0000000000000000       0x40 device/driverlib/fsi.o
+ .text.FSI_executeTxFlushSequence
+                0x0000000000000000       0x70 device/driverlib/fsi.o
+ .text.FSI_sendTxFlush
+                0x0000000000000000       0x40 device/driverlib/fsi.o
+ .text.FSI_stopTxFlush
+                0x0000000000000000       0x40 device/driverlib/fsi.o
+ .debug_abbrev  0x0000000000000000       0xee device/driverlib/fsi.o
+ .debug_info    0x0000000000000000      0x4fb device/driverlib/fsi.o
+ .debug_ranges  0x0000000000000000       0xa0 device/driverlib/fsi.o
+ .debug_str     0x0000000000000000      0x47d device/driverlib/fsi.o
+ .debug_frame   0x0000000000000000      0x198 device/driverlib/fsi.o
+ .debug_line    0x0000000000000000      0x562 device/driverlib/fsi.o
+ .llvm_addrsig  0x0000000000000000       0x11 device/driverlib/fsi.o
+ .text          0x0000000000000000        0x0 device/driverlib/globalvariabledefs.o
+ BgcrcCpuRegsFile
+                0x0000000000000000       0x54 device/driverlib/globalvariabledefs.o
+ BgcrcCla1RegsFile
+                0x0000000000000000       0x54 device/driverlib/globalvariabledefs.o
+ DcsmCommonRegsFile
+                0x0000000000000000       0x28 device/driverlib/globalvariabledefs.o
+ ECap4RegsFile  0x0000000000000000       0x40 device/driverlib/globalvariabledefs.o
+ ECap5RegsFile  0x0000000000000000       0x40 device/driverlib/globalvariabledefs.o
+ ECap6RegsFile  0x0000000000000000       0x40 device/driverlib/globalvariabledefs.o
+ HRCap6RegsFile
+                0x0000000000000000       0x2c device/driverlib/globalvariabledefs.o
+ ECap7RegsFile  0x0000000000000000       0x40 device/driverlib/globalvariabledefs.o
+ HRCap7RegsFile
+                0x0000000000000000       0x2c device/driverlib/globalvariabledefs.o
+ EPwm9RegsFile  0x0000000000000000      0x200 device/driverlib/globalvariabledefs.o
+ EPwm10RegsFile
+                0x0000000000000000      0x200 device/driverlib/globalvariabledefs.o
+ EPwm11RegsFile
+                0x0000000000000000      0x200 device/driverlib/globalvariabledefs.o
+ EPwm12RegsFile
+                0x0000000000000000      0x200 device/driverlib/globalvariabledefs.o
+ Pga1RegsFile   0x0000000000000000       0x20 device/driverlib/globalvariabledefs.o
+ Pga2RegsFile   0x0000000000000000       0x20 device/driverlib/globalvariabledefs.o
+ Pga3RegsFile   0x0000000000000000       0x20 device/driverlib/globalvariabledefs.o
+ Pga4RegsFile   0x0000000000000000       0x20 device/driverlib/globalvariabledefs.o
+ Pga5RegsFile   0x0000000000000000       0x20 device/driverlib/globalvariabledefs.o
+ Pga6RegsFile   0x0000000000000000       0x20 device/driverlib/globalvariabledefs.o
+ Pga7RegsFile   0x0000000000000000       0x20 device/driverlib/globalvariabledefs.o
+ Cmpss5RegsFile
+                0x0000000000000000       0x54 device/driverlib/globalvariabledefs.o
+ Cmpss6RegsFile
+                0x0000000000000000       0x54 device/driverlib/globalvariabledefs.o
+ Cmpss7RegsFile
+                0x0000000000000000       0x54 device/driverlib/globalvariabledefs.o
+ AdcgResultRegsFile
+                0x0000000000000000       0x50 device/driverlib/globalvariabledefs.o
+ AdchResultRegsFile
+                0x0000000000000000       0x50 device/driverlib/globalvariabledefs.o
+ HrAdcaResultRegsFile
+                0x0000000000000000       0x40 device/driverlib/globalvariabledefs.o
+ HrAdcbResultRegsFile
+                0x0000000000000000       0x40 device/driverlib/globalvariabledefs.o
+ HrAdccResultRegsFile
+                0x0000000000000000       0x40 device/driverlib/globalvariabledefs.o
+ AdcgRegsFile   0x0000000000000000      0x114 device/driverlib/globalvariabledefs.o
+ AdchRegsFile   0x0000000000000000      0x114 device/driverlib/globalvariabledefs.o
+ HrAdcaRegsFile
+                0x0000000000000000       0xe8 device/driverlib/globalvariabledefs.o
+ HrAdcbRegsFile
+                0x0000000000000000       0xe8 device/driverlib/globalvariabledefs.o
+ HrAdccRegsFile
+                0x0000000000000000       0xe8 device/driverlib/globalvariabledefs.o
+ .llvm_addrsig  0x0000000000000000        0x0 device/driverlib/globalvariabledefs.o
+ .text          0x0000000000000000        0x0 device/driverlib/gpio.o
+ .text.GPIO_getDirectionMode
+                0x0000000000000000       0x60 device/driverlib/gpio.o
+ .text.GPIO_setInterruptPin
+                0x0000000000000000      0x130 device/driverlib/gpio.o
+ .rodata.GPIO_setInterruptPin
+                0x0000000000000000       0x44 device/driverlib/gpio.o
+ .text.XBAR_setInputPin
+                0x0000000000000000       0x40 device/driverlib/gpio.o
+ .text.GPIO_getPadConfig
+                0x0000000000000000      0x140 device/driverlib/gpio.o
+ .text.GPIO_setQualificationMode
+                0x0000000000000000       0xd0 device/driverlib/gpio.o
+ .text.GPIO_getQualificationMode
+                0x0000000000000000       0x90 device/driverlib/gpio.o
+ .text.GPIO_setQualificationPeriod
+                0x0000000000000000       0xa0 device/driverlib/gpio.o
+ .text.GPIO_setControllerCore
+                0x0000000000000000       0xd0 device/driverlib/gpio.o
+ .text.GPIO_setAnalogMode
+                0x0000000000000000      0x1c0 device/driverlib/gpio.o
+ .text.GPIO_MuxConfig
+                0x0000000000000000       0x70 device/driverlib/gpio.o
+ .llvm_addrsig  0x0000000000000000        0x7 device/driverlib/gpio.o
+ .text          0x0000000000000000        0x0 device/driverlib/hic.o
+ .llvm_addrsig  0x0000000000000000        0x0 device/driverlib/hic.o
+ .text          0x0000000000000000        0x0 device/driverlib/hr_adc.o
+ .text.HR_ADC_setPPBTripLimits
+                0x0000000000000000       0x90 device/driverlib/hr_adc.o
+ .debug_abbrev  0x0000000000000000       0xba device/driverlib/hr_adc.o
+ .debug_info    0x0000000000000000      0x1d6 device/driverlib/hr_adc.o
+ .debug_str     0x0000000000000000      0x243 device/driverlib/hr_adc.o
+ .debug_frame   0x0000000000000000       0x24 device/driverlib/hr_adc.o
+ .debug_line    0x0000000000000000      0x169 device/driverlib/hr_adc.o
+ .llvm_addrsig  0x0000000000000000        0x0 device/driverlib/hr_adc.o
+ .text          0x0000000000000000        0x0 device/driverlib/hrcap.o
+ .llvm_addrsig  0x0000000000000000        0x0 device/driverlib/hrcap.o
+ .text          0x0000000000000000        0x0 device/driverlib/hrpwm.o
+ .llvm_addrsig  0x0000000000000000        0x0 device/driverlib/hrpwm.o
+ .text          0x0000000000000000        0x0 device/driverlib/i2c.o
+ .text.I2C_initController
+                0x0000000000000000      0x2d0 device/driverlib/i2c.o
+ .text.I2C_initControllerModuleFrequency
+                0x0000000000000000      0x180 device/driverlib/i2c.o
+ .text.I2C_enableInterrupt
+                0x0000000000000000      0x100 device/driverlib/i2c.o
+ .text.I2C_disableInterrupt
+                0x0000000000000000      0x110 device/driverlib/i2c.o
+ .text.I2C_getInterruptStatus
+                0x0000000000000000       0xc0 device/driverlib/i2c.o
+ .text.I2C_clearInterruptStatus
+                0x0000000000000000       0xc0 device/driverlib/i2c.o
+ .text.I2C_configureModuleFrequency
+                0x0000000000000000       0x50 device/driverlib/i2c.o
+ .text.I2C_configureModuleClockFrequency
+                0x0000000000000000       0x60 device/driverlib/i2c.o
+ .debug_abbrev  0x0000000000000000       0xcd device/driverlib/i2c.o
+ .debug_info    0x0000000000000000      0x2d7 device/driverlib/i2c.o
+ .debug_ranges  0x0000000000000000       0x48 device/driverlib/i2c.o
+ .debug_str     0x0000000000000000      0x276 device/driverlib/i2c.o
+ .debug_frame   0x0000000000000000       0xbc device/driverlib/i2c.o
+ .debug_line    0x0000000000000000      0x405 device/driverlib/i2c.o
+ .llvm_addrsig  0x0000000000000000        0x0 device/driverlib/i2c.o
+ .text          0x0000000000000000        0x0 device/driverlib/interrupt.o
+ .text.Interrupt_initModule
+                0x0000000000000000      0x1b0 device/driverlib/interrupt.o
+ .text.Interrupt_enable
+                0x0000000000000000       0xb0 device/driverlib/interrupt.o
+ .text.Interrupt_disable
+                0x0000000000000000       0xc0 device/driverlib/interrupt.o
+ .llvm_addrsig  0x0000000000000000        0x4 device/driverlib/interrupt.o
+ .text          0x0000000000000000        0x0 device/driverlib/ipc.o
+ .text.IPC_sendCommand
+                0x0000000000000000      0x1c0 device/driverlib/ipc.o
+ .text.IPC_readCommand
+                0x0000000000000000      0x180 device/driverlib/ipc.o
+ .text.IPC_registerInterrupt
+                0x0000000000000000       0x80 device/driverlib/ipc.o
+ .text.Interrupt_register
+                0x0000000000000000       0x70 device/driverlib/ipc.o
+ .text.IPC_unregisterInterrupt
+                0x0000000000000000       0x60 device/driverlib/ipc.o
+ .text.IPC_initMessageQueue
+                0x0000000000000000      0x130 device/driverlib/ipc.o
+ .text.IPC_sendMessageToQueue
+                0x0000000000000000      0x220 device/driverlib/ipc.o
+ .text.IPC_setFlagLtoR
+                0x0000000000000000       0x40 device/driverlib/ipc.o
+ .text.IPC_readMessageFromQueue
+                0x0000000000000000      0x1f0 device/driverlib/ipc.o
+ .rodata.IPC_Instance
+                0x0000000000000000       0x80 device/driverlib/ipc.o
+ .debug_abbrev  0x0000000000000000      0x15f device/driverlib/ipc.o
+ .debug_info    0x0000000000000000      0x762 device/driverlib/ipc.o
+ .debug_ranges  0x0000000000000000       0x50 device/driverlib/ipc.o
+ .debug_str     0x0000000000000000      0x50d device/driverlib/ipc.o
+ .debug_frame   0x0000000000000000       0xd0 device/driverlib/ipc.o
+ .debug_line    0x0000000000000000      0x5cc device/driverlib/ipc.o
+ .llvm_addrsig  0x0000000000000000        0xe device/driverlib/ipc.o
+ .text          0x0000000000000000        0x0 device/driverlib/lin.o
+ .text.LIN_sendCommand
+                0x0000000000000000      0x340 device/driverlib/lin.o
+ .rodata.LIN_sendCommand
+                0x0000000000000000       0x14 device/driverlib/lin.o
+ .text.LIN_writeLSEL
+                0x0000000000000000       0xa0 device/driverlib/lin.o
+ .text.LIN_writeBuffer
+                0x0000000000000000       0x80 device/driverlib/lin.o
+ .text.LIN_readBuffer
+                0x0000000000000000       0x90 device/driverlib/lin.o
+ .text.LIN_getLBUF
+                0x0000000000000000       0x30 device/driverlib/lin.o
+ .text.LIN_waitForHeader
+                0x0000000000000000       0x90 device/driverlib/lin.o
+ .text.LIN_getLSR
+                0x0000000000000000       0x30 device/driverlib/lin.o
+ .text.LIN_waitForReady
+                0x0000000000000000       0x90 device/driverlib/lin.o
+ .debug_loc     0x0000000000000000       0x6c device/driverlib/lin.o
+ .debug_abbrev  0x0000000000000000      0x10b device/driverlib/lin.o
+ .debug_info    0x0000000000000000      0xb72 device/driverlib/lin.o
+ .debug_ranges  0x0000000000000000       0x48 device/driverlib/lin.o
+ .debug_str     0x0000000000000000      0x5a9 device/driverlib/lin.o
+ .debug_frame   0x0000000000000000       0xbc device/driverlib/lin.o
+ .debug_line    0x0000000000000000      0x3a7 device/driverlib/lin.o
+ .llvm_addrsig  0x0000000000000000        0x2 device/driverlib/lin.o
+ .text          0x0000000000000000        0x0 device/driverlib/pga.o
+ .llvm_addrsig  0x0000000000000000        0x0 device/driverlib/pga.o
+ .text          0x0000000000000000        0x0 device/driverlib/pmbus.o
+ .text.PMBus_pecCalculate
+                0x0000000000000000      0x140 device/driverlib/pmbus.o
+ .text.__byte   0x0000000000000000       0x30 device/driverlib/pmbus.o
+ .text.PMBus_getInterruptStatus
+                0x0000000000000000       0x40 device/driverlib/pmbus.o
+ .text.PMBus_initTargetMode
+                0x0000000000000000       0xd0 device/driverlib/pmbus.o
+ .text.PMBus_configTarget
+                0x0000000000000000       0xc0 device/driverlib/pmbus.o
+ .text.PMBus_putTargetData
+                0x0000000000000000      0x200 device/driverlib/pmbus.o
+ .text.PMBus_ackAddress
+                0x0000000000000000       0x30 device/driverlib/pmbus.o
+ .text.PMBus_ackCommand
+                0x0000000000000000       0x30 device/driverlib/pmbus.o
+ .text.PMBus_initControllerMode
+                0x0000000000000000       0xa0 device/driverlib/pmbus.o
+ .text.PMBus_generateCRCTable
+                0x0000000000000000      0x160 device/driverlib/pmbus.o
+ .text.PMBus_verifyPEC
+                0x0000000000000000      0x130 device/driverlib/pmbus.o
+ .text.PMBus_getData
+                0x0000000000000000       0xf0 device/driverlib/pmbus.o
+ .text.PMBus_putControllerData
+                0x0000000000000000       0xa0 device/driverlib/pmbus.o
+ .text.PMBus_configModuleClock
+                0x0000000000000000       0xd0 device/driverlib/pmbus.o
+ .text.PMBus_configBusClock
+                0x0000000000000000      0x290 device/driverlib/pmbus.o
+ .bss.PEC_ENA_FLAG
+                0x0000000000000000        0x1 device/driverlib/pmbus.o
+ .rodata.PMBus_crc8Table
+                0x0000000000000000      0x200 device/driverlib/pmbus.o
+ .debug_abbrev  0x0000000000000000       0xf1 device/driverlib/pmbus.o
+ .debug_info    0x0000000000000000      0x727 device/driverlib/pmbus.o
+ .debug_ranges  0x0000000000000000       0x80 device/driverlib/pmbus.o
+ .debug_str     0x0000000000000000      0x46d device/driverlib/pmbus.o
+ .debug_frame   0x0000000000000000      0x150 device/driverlib/pmbus.o
+ .debug_line    0x0000000000000000      0x67a device/driverlib/pmbus.o
+ .llvm_addrsig  0x0000000000000000        0x9 device/driverlib/pmbus.o
+ .text          0x0000000000000000        0x0 device/driverlib/sci.o
+ .text.SCI_setConfig
+                0x0000000000000000       0xb0 device/driverlib/sci.o
+ .text.SCI_disableModule
+                0x0000000000000000       0x40 device/driverlib/sci.o
+ .text.SCI_enableModule
+                0x0000000000000000       0x30 device/driverlib/sci.o
+ .text.SCI_writeCharArray
+                0x0000000000000000      0x1f0 device/driverlib/sci.o
+ .text.SCI_isFIFOEnabled
+                0x0000000000000000       0x30 device/driverlib/sci.o
+ .text.SCI_getTxFIFOStatus
+                0x0000000000000000       0x30 device/driverlib/sci.o
+ .text.SCI_isSpaceAvailableNonFIFO
+                0x0000000000000000       0x30 device/driverlib/sci.o
+ .text.SCI_readCharArray
+                0x0000000000000000      0x210 device/driverlib/sci.o
+ .text.SCI_getRxFIFOStatus
+                0x0000000000000000       0x30 device/driverlib/sci.o
+ .text.SCI_isDataAvailableNonFIFO
+                0x0000000000000000       0x30 device/driverlib/sci.o
+ .text.SCI_enableInterrupt
+                0x0000000000000000      0x170 device/driverlib/sci.o
+ .text.SCI_disableInterrupt
+                0x0000000000000000      0x190 device/driverlib/sci.o
+ .text.SCI_getInterruptStatus
+                0x0000000000000000      0x280 device/driverlib/sci.o
+ .text.SCI_clearInterruptStatus
+                0x0000000000000000      0x1d0 device/driverlib/sci.o
+ .text.SCI_performSoftwareReset
+                0x0000000000000000       0x40 device/driverlib/sci.o
+ .rodata.cst4   0x0000000000000000        0xc device/driverlib/sci.o
+ .text.SCI_setBaud
+                0x0000000000000000       0xa0 device/driverlib/sci.o
+ .text.SCI_setWakeFlag
+                0x0000000000000000       0x30 device/driverlib/sci.o
+ .debug_abbrev  0x0000000000000000       0xfc device/driverlib/sci.o
+ .debug_info    0x0000000000000000      0x4dc device/driverlib/sci.o
+ .debug_ranges  0x0000000000000000       0x90 device/driverlib/sci.o
+ .debug_str     0x0000000000000000      0x4bf device/driverlib/sci.o
+ .debug_frame   0x0000000000000000      0x174 device/driverlib/sci.o
+ .debug_line    0x0000000000000000      0x5f6 device/driverlib/sci.o
+ .llvm_addrsig  0x0000000000000000        0x8 device/driverlib/sci.o
+ .text          0x0000000000000000        0x0 device/driverlib/sdfm.o
+ .text.SDFM_configComparator
+                0x0000000000000000      0x170 device/driverlib/sdfm.o
+ .text.SDFM_setComparatorFilterType
+                0x0000000000000000       0x70 device/driverlib/sdfm.o
+ .text.SDFM_setCompFilterOverSamplingRatio
+                0x0000000000000000       0x60 device/driverlib/sdfm.o
+ .text.SDFM_setCompFilterHighThreshold
+                0x0000000000000000       0x80 device/driverlib/sdfm.o
+ .text.SDFM_setCompFilterLowThreshold
+                0x0000000000000000       0x80 device/driverlib/sdfm.o
+ .text.SDFM_setCompFilterZeroCrossThreshold
+                0x0000000000000000       0x60 device/driverlib/sdfm.o
+ .text.SDFM_enableZeroCrossEdgeDetect
+                0x0000000000000000       0x40 device/driverlib/sdfm.o
+ .text.SDFM_configDataFilter
+                0x0000000000000000      0x1b0 device/driverlib/sdfm.o
+ .text.SDFM_setFilterType
+                0x0000000000000000       0x70 device/driverlib/sdfm.o
+ .text.SDFM_setFilterOverSamplingRatio
+                0x0000000000000000       0x60 device/driverlib/sdfm.o
+ .text.SDFM_enableFilter
+                0x0000000000000000       0x40 device/driverlib/sdfm.o
+ .text.SDFM_disableFilter
+                0x0000000000000000       0x50 device/driverlib/sdfm.o
+ .text.SDFM_setOutputDataFormat
+                0x0000000000000000       0x70 device/driverlib/sdfm.o
+ .text.SDFM_setDataShiftValue
+                0x0000000000000000       0x70 device/driverlib/sdfm.o
+ .text.SDFM_configZeroCrossComparator
+                0x0000000000000000       0xe0 device/driverlib/sdfm.o
+ .text.SDFM_configDataFilterFIFO
+                0x0000000000000000      0x200 device/driverlib/sdfm.o
+ .text.SDFM_setFIFOInterruptLevel
+                0x0000000000000000       0x60 device/driverlib/sdfm.o
+ .text.SDFM_enableFIFOBuffer
+                0x0000000000000000       0x40 device/driverlib/sdfm.o
+ .debug_abbrev  0x0000000000000000       0xb4 device/driverlib/sdfm.o
+ .debug_info    0x0000000000000000      0x671 device/driverlib/sdfm.o
+ .debug_ranges  0x0000000000000000       0x98 device/driverlib/sdfm.o
+ .debug_str     0x0000000000000000      0x492 device/driverlib/sdfm.o
+ .debug_frame   0x0000000000000000      0x188 device/driverlib/sdfm.o
+ .debug_line    0x0000000000000000      0x663 device/driverlib/sdfm.o
+ .llvm_addrsig  0x0000000000000000        0xe device/driverlib/sdfm.o
+ .text          0x0000000000000000        0x0 device/driverlib/spi.o
+ .text.SPI_setConfig
+                0x0000000000000000       0xe0 device/driverlib/spi.o
+ .text.SPI_setBaudRate
+                0x0000000000000000       0x60 device/driverlib/spi.o
+ .text.SPI_enableInterrupt
+                0x0000000000000000      0x130 device/driverlib/spi.o
+ .text.SPI_disableInterrupt
+                0x0000000000000000      0x140 device/driverlib/spi.o
+ .text.SPI_getInterruptStatus
+                0x0000000000000000      0x180 device/driverlib/spi.o
+ .text.SPI_clearInterruptStatus
+                0x0000000000000000      0x190 device/driverlib/spi.o
+ .text.SPI_pollingNonFIFOTransaction
+                0x0000000000000000       0x80 device/driverlib/spi.o
+ .text.SPI_writeDataBlockingNonFIFO
+                0x0000000000000000       0x70 device/driverlib/spi.o
+ .text.SPI_readDataBlockingNonFIFO
+                0x0000000000000000       0x80 device/driverlib/spi.o
+ .text.SPI_pollingFIFOTransaction
+                0x0000000000000000      0x4d0 device/driverlib/spi.o
+ .text.SPI_disableFIFO
+                0x0000000000000000       0x40 device/driverlib/spi.o
+ .text.SPI_enableFIFO
+                0x0000000000000000       0x40 device/driverlib/spi.o
+ .text.SPI_setTxFifoTransmitDelay
+                0x0000000000000000       0x30 device/driverlib/spi.o
+ .text.SPI_writeDataBlockingFIFO
+                0x0000000000000000       0x80 device/driverlib/spi.o
+ .text.SPI_getRxFIFOStatus
+                0x0000000000000000       0x30 device/driverlib/spi.o
+ .text.SPI_readDataBlockingFIFO
+                0x0000000000000000       0x90 device/driverlib/spi.o
+ .text.SPI_transmit24Bits
+                0x0000000000000000       0xf0 device/driverlib/spi.o
+ .text.SPI_receive16Bits
+                0x0000000000000000      0x160 device/driverlib/spi.o
+ .text.SPI_receive24Bits
+                0x0000000000000000      0x180 device/driverlib/spi.o
+ .text.SPI_transmit32Bits
+                0x0000000000000000       0xe0 device/driverlib/spi.o
+ .text.SPI_receive32Bits
+                0x0000000000000000      0x190 device/driverlib/spi.o
+ .text.SPI_getTxFIFOStatus
+                0x0000000000000000       0x30 device/driverlib/spi.o
+ .debug_abbrev  0x0000000000000000      0x146 device/driverlib/spi.o
+ .debug_info    0x0000000000000000      0x8cd device/driverlib/spi.o
+ .debug_ranges  0x0000000000000000       0xb8 device/driverlib/spi.o
+ .debug_str     0x0000000000000000      0x72e device/driverlib/spi.o
+ .debug_frame   0x0000000000000000      0x1f4 device/driverlib/spi.o
+ .debug_line    0x0000000000000000      0x8ea device/driverlib/spi.o
+ .llvm_addrsig  0x0000000000000000        0xb device/driverlib/spi.o
+ .text          0x0000000000000000        0x0 device/driverlib/sysctl.o
+ .text.SysCtl_getLowSpeedClock
+                0x0000000000000000       0xb0 device/driverlib/sysctl.o
+ .text.SysCtl_isPLLValid
+                0x0000000000000000      0x420 device/driverlib/sysctl.o
+ .text.DCC_clearErrorFlag
+                0x0000000000000000       0x30 device/driverlib/sysctl.o
+ .text.DCC_clearDoneFlag
+                0x0000000000000000       0x30 device/driverlib/sysctl.o
+ .text.DCC_disableModule
+                0x0000000000000000       0x40 device/driverlib/sysctl.o
+ .text.DCC_disableErrorSignal
+                0x0000000000000000       0x40 device/driverlib/sysctl.o
+ .text.DCC_disableDoneSignal
+                0x0000000000000000       0x40 device/driverlib/sysctl.o
+ .text.DCC_setCounter0ClkSource
+                0x0000000000000000       0x50 device/driverlib/sysctl.o
+ .text.DCC_setCounter1ClkSource
+                0x0000000000000000       0x50 device/driverlib/sysctl.o
+ .text.DCC_setCounterSeeds
+                0x0000000000000000       0xb0 device/driverlib/sysctl.o
+ .text.DCC_enableSingleShotMode
+                0x0000000000000000       0xb0 device/driverlib/sysctl.o
+ .text.DCC_enableErrorSignal
+                0x0000000000000000       0x40 device/driverlib/sysctl.o
+ .text.DCC_enableDoneSignal
+                0x0000000000000000       0x40 device/driverlib/sysctl.o
+ .text.DCC_enableModule
+                0x0000000000000000       0x40 device/driverlib/sysctl.o
+ .llvm_addrsig  0x0000000000000000       0x1a device/driverlib/sysctl.o
+ .text          0x0000000000000000        0x0 device/driverlib/version.o
+ .text.Version_getLibVersion
+                0x0000000000000000       0x20 device/driverlib/version.o
+ .debug_abbrev  0x0000000000000000       0x43 device/driverlib/version.o
+ .debug_info    0x0000000000000000       0x5b device/driverlib/version.o
+ .debug_str     0x0000000000000000      0x123 device/driverlib/version.o
+ .debug_frame   0x0000000000000000       0x20 device/driverlib/version.o
+ .debug_line    0x0000000000000000      0x142 device/driverlib/version.o
+ .llvm_addrsig  0x0000000000000000        0x0 device/driverlib/version.o
+ .text          0x0000000000000000        0x0 device/driverlib/xbar.o
+ .text.XBAR_setOutputMuxConfig
+                0x0000000000000000       0xf0 device/driverlib/xbar.o
+ .text.XBAR_setEPWMMuxConfig
+                0x0000000000000000       0xe0 device/driverlib/xbar.o
+ .text.XBAR_setCLBMuxConfig
+                0x0000000000000000       0xe0 device/driverlib/xbar.o
+ .text.XBAR_getInputFlagStatus
+                0x0000000000000000      0x150 device/driverlib/xbar.o
+ .text.XBAR_clearInputFlag
+                0x0000000000000000      0x140 device/driverlib/xbar.o
+ .debug_abbrev  0x0000000000000000       0xb4 device/driverlib/xbar.o
+ .debug_info    0x0000000000000000      0xdd1 device/driverlib/xbar.o
+ .debug_ranges  0x0000000000000000       0x30 device/driverlib/xbar.o
+ .debug_str     0x0000000000000000     0x2f2f device/driverlib/xbar.o
+ .debug_frame   0x0000000000000000       0x74 device/driverlib/xbar.o
+ .debug_line    0x0000000000000000      0x2fc device/driverlib/xbar.o
+ .llvm_addrsig  0x0000000000000000        0x0 device/driverlib/xbar.o
+ .text          0x0000000000000000        0x0 device/startup.o
+ .text.qxboot1debug
+                0x0000000000000000       0x10 device/startup.o
+ .text          0x0000000000000000        0x0 main.o
+ .llvm_addrsig  0x0000000000000000        0xc main.o
+ .text          0x0000000000000000        0x0 task8.o
+ .data          0x0000000000000000        0x0 task8.o
+ .bss           0x0000000000000000        0x0 task8.o
+ .text          0x0000000000000000        0x0 ../libv2/libprintf.a(ee_printf.o)
+ .llvm_addrsig  0x0000000000000000        0x0 ../libv2/libprintf.a(ee_printf.o)
+ .llvm_addrsig  0x0000000000000000        0x0 ../libv2/libm.a(lib_a-sf_modf.o)
+ .llvm_addrsig  0x0000000000000000        0x0 ../libv2/libm.a(lib_a-sf_fpclassify.o)
+ .llvm_addrsig  0x0000000000000000        0x0 ../libv2/libc.a(lib_a-rand.o)
+ .text          0x0000000000000000        0x0 ../libv2/libc.a(lib_a-impure.o)
+ .rodata        0x0000000000000000        0x4 ../libv2/libc.a(lib_a-impure.o)
+ .llvm_addrsig  0x0000000000000000        0x1 ../libv2/libc.a(lib_a-impure.o)
+ .llvm_addrsig  0x0000000000000000        0x0 ../libv2/librt.a(udivsi3.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+SRAM_N_BANK00    0x0000000000000000 0x0000000000008000
+SRAM_N_BANK01    0x0000000000008000 0x0000000000008000
+SRAM_N_BANK02    0x0000000000010000 0x0000000000008000
+SRAM_N_BANK03    0x0000000000018000 0x0000000000008000
+SRAM_N_BANK04    0x0000000000020000 0x0000000000008000
+SRAM_N_BANK05    0x0000000000028000 0x0000000000008000
+SRAM_N_BANK06    0x0000000000030000 0x0000000000008000
+SRAM_N_BANK07    0x0000000000038000 0x0000000000008000
+SRAM_N_BANK08    0x0000000000040000 0x0000000000008000
+SRAM_N_BANK09    0x0000000000048000 0x0000000000008000
+SRAM_N_BANK10    0x0000000000050000 0x0000000000008000
+SRAM_N_BANK11    0x0000000000058000 0x0000000000008000
+SRAM_N_BANK12    0x0000000000060000 0x0000000000008000
+SRAM_N_BANK13    0x0000000000068000 0x0000000000008000
+SRAM_N_BANK14    0x0000000000070000 0x0000000000008000
+SRAM_N_BANK15    0x0000000000078000 0x0000000000008000
+SRAM_F_BANK00    0x0000000000080000 0x0000000000010000
+SRAM_F_BANK01    0x0000000000090000 0x0000000000010000
+SRAM_F_BANK02    0x00000000000a0000 0x0000000000010000
+SRAM_F_BANK03    0x00000000000b0000 0x0000000000010000
+SRAM_F_BANK04    0x00000000000c0000 0x0000000000010000
+SRAM_F_BANK05    0x00000000000d0000 0x0000000000010000
+SRAM_F_BANK06    0x00000000000e0000 0x0000000000010000
+SRAM_F_BANK07    0x00000000000f0000 0x0000000000010000
+SRAM_CPU_2_CLA   0x0000000000202000 0x0000000000001000
+SRAM_CLA_2_CPU   0x0000000000203000 0x0000000000001000
+BOOT_RAM         0x0000000000280000 0x0000000000002000
+FLASH_DATA       0x0000000030000000 0x0000000000100000
+GS_RAM_CORE0_CLA_INST 0x0000000000000000 0x0000000000008000
+GS_RAM_CORE0_CLA_DATA 0x0000000000008000 0x0000000000008000
+GS_RAM_CORE0_DATA 0x0000000000010000 0x000000000001fc00
+GS_RAM_CORE0_IVEC 0x000000000002fc00 0x0000000000000400
+GS_RAM_CORE0_INST 0x0000000000030000 0x0000000000050000
+STACK            0x0000000000000000 0x0000000000000400
+PIECTRL          0x00000000007f0100 0x0000000000000100
+PIEVECTTABLE     0x000000000002fc00 0x0000000000000400
+DEBUG            0x00000000007f0200 0x0000000000000100
+CPUTIMER0        0x00000000007f0300 0x0000000000000020
+CPUTIMER1        0x00000000007f0320 0x0000000000000020
+CPUTIMER2        0x00000000007f0340 0x0000000000000020
+CR               0x00000000007f0400 0x0000000000000100
+GR               0x00000000007f0500 0x0000000000000100
+MOB              0x00000000007f0600 0x0000000000000100
+EXP              0x00000000007f0700 0x0000000000000100
+WD               0x00000000007f0800 0x0000000000000100
+IPCEVENT         0x00000000007f0900 0x0000000000000100
+IPCCMD           0x00000000007f0a00 0x0000000000000100
+VCU              0x00000000007f0b00 0x0000000000000100
+TRACE_BUFFER     0x00000000007f0c00 0x0000000000000100
+WATCH_POINT      0x00000000007f0d00 0x0000000000000100
+ECC              0x00000000007f0e00 0x0000000000000100
+ERADGLOBAL       0x00000000007f0f00 0x0000000000000100
+ERADHWBP1        0x00000000007f1000 0x0000000000000100
+ERADHWBP2        0x00000000007f1100 0x0000000000000100
+ERADHWBP3        0x00000000007f1200 0x0000000000000100
+ERADHWBP4        0x00000000007f1300 0x0000000000000100
+ERADHWBP5        0x00000000007f1400 0x0000000000000100
+ERADHWBP6        0x00000000007f1500 0x0000000000000100
+ERADHWBP7        0x00000000007f1600 0x0000000000000100
+ERADHWBP8        0x00000000007f1700 0x0000000000000100
+ERADCOUNTER1     0x00000000007f1800 0x0000000000000100
+ERADCOUNTER2     0x00000000007f1900 0x0000000000000100
+ERADCOUNTER3     0x00000000007f1a00 0x0000000000000100
+ERADCOUNTER4     0x00000000007f1b00 0x0000000000000100
+CLA1             0x00000000007f1c00 0x0000000000000100
+IPCCPU1RAM       0x0000000000100000 0x0000000000001000
+IPCCPU2RAM       0x0000000000101000 0x0000000000001000
+CLKCFG           0x0000000001000000 0x0000000000000200
+CPUSYS           0x0000000001001000 0x0000000000000400
+DEVCFG           0x0000000001001000 0x0000000000000400
+XINT             0x00000000010011b0 0x0000000000000050
+NMIINTRUPT       0x0000000001001200 0x0000000000000100
+DMA              0x0000000001002000 0x0000000000001000
+DMACH1           0x0000000001002100 0x0000000000000100
+DMACH2           0x0000000001002200 0x0000000000000100
+DMACH3           0x0000000001002300 0x0000000000000100
+DMACH4           0x0000000001002400 0x0000000000000100
+DMACH5           0x0000000001002500 0x0000000000000100
+DMACH6           0x0000000001002600 0x0000000000000100
+REGFILE          0x0000000001003000 0x0000000000001000
+DMA_L            0x0000000001005000 0x0000000000001000
+EPWM1            0x0000000001010000 0x0000000000000200
+EPWM2            0x0000000001010200 0x0000000000000200
+EPWM3            0x0000000001010400 0x0000000000000200
+EPWM4            0x0000000001010600 0x0000000000000200
+EPWM5            0x0000000001010800 0x0000000000000200
+EPWM6            0x0000000001010a00 0x0000000000000200
+EPWM7            0x0000000001010c00 0x0000000000000200
+EPWM8            0x0000000001010e00 0x0000000000000200
+EQEP1            0x0000000001012000 0x0000000000000800
+EQEP2            0x0000000001012800 0x0000000000000800
+ECAP1            0x0000000001014000 0x0000000000000080
+ECAP2            0x0000000001014100 0x0000000000000080
+ECAP3            0x0000000001014200 0x0000000000000080
+HRCAP3           0x0000000001014300 0x0000000000000040
+SYNCSOC          0x0000000001014400 0x0000000000000080
+SFO              0x0000000001014500 0x0000000000000080
+SFOHHR           0x0000000001014600 0x0000000000000080
+DAC_A            0x0000000001016000 0x0000000000000040
+DAC_B            0x0000000001016040 0x0000000000000040
+CMPSS1           0x0000000001018000 0x0000000000000100
+CMPSS2           0x0000000001018800 0x0000000000000100
+CMPSS3           0x0000000001019000 0x0000000000000100
+CMPSS4           0x0000000001019800 0x0000000000000100
+SDFM1            0x000000000101a000 0x0000000000001000
+SDFM2            0x000000000101c000 0x0000000000001000
+SPIA             0x0000000001020000 0x0000000000001000
+SPIB             0x0000000001021000 0x0000000000001000
+PMBUSA           0x0000000001023000 0x0000000000001000
+FSITXA           0x0000000001025000 0x0000000000001000
+FSIRXA           0x0000000001026000 0x0000000000001000
+ADCARESULT       0x0000000001030110 0x0000000000000200
+ADCBRESULT       0x0000000001030310 0x0000000000000200
+ADCCRESULT       0x0000000001030510 0x0000000000000200
+ADC_A            0x0000000001032000 0x0000000000000200
+ADC_B            0x0000000001032200 0x0000000000000200
+ADC_C            0x0000000001032400 0x0000000000000200
+INPUTXBAR        0x0000000001040000 0x0000000000001000
+XBAR             0x0000000001041000 0x0000000000001000
+EPWMXBAR         0x0000000001043000 0x0000000000001000
+OUTPUTXBAR       0x0000000001045000 0x0000000000001000
+GPIOCTRL         0x0000000001047000 0x0000000000001000
+GPIODATA         0x0000000001048000 0x0000000000001000
+ANALOGSUBSYS     0x0000000001049000 0x0000000000001000
+DCSMBANK0Z1      0x0000000001051000 0x0000000000000800
+DCSMBANK0Z2      0x0000000001051800 0x0000000000000800
+DCSMCOMMON       0x0000000001052000 0x0000000000001000
+DCSMBANK1Z1      0x0000000001053000 0x0000000000000800
+DCSMBANK1Z2      0x0000000001053800 0x0000000000000800
+CANA             0x0000000001060000 0x0000000000001000
+CANB             0x0000000001061000 0x0000000000001000
+DCC0             0x0000000001062000 0x0000000000001000
+DCC1             0x0000000001063000 0x0000000000001000
+LINA             0x0000000001070000 0x0000000000001000
+SCIC             0x0000000001070000 0x0000000000001000
+LINB             0x0000000001071000 0x0000000000001000
+SCID             0x0000000001071000 0x0000000000001000
+SCIA             0x0000000001080000 0x0000000000001000
+SCIB             0x0000000001081000 0x0000000000001000
+I2CA             0x0000000001082000 0x0000000000001000
+I2CB             0x0000000001083000 0x0000000000001000
+CLB1             0x0000000001090000 0x0000000000001000
+CLB2             0x0000000001091000 0x0000000000001000
+CLB3             0x0000000001092000 0x0000000000001000
+CLB4             0x0000000001093000 0x0000000000001000
+AES              0x00000000010a0000 0x0000000000001000
+AES_SS           0x00000000010a0c00 0x0000000000001000
+FLASH0CTRL       0x00000000010b0000 0x0000000000001000
+CPU1TOCPU2IPC    0x0000000000200000 0x0000000000001000
+CPU1TOCLA1IPC    0x0000000000201000 0x0000000000001000
+CLA1TOCPU1IPC    0x0000000000202000 0x0000000000001000
+CPU2TOCPU1IPC    0x0000000000203000 0x0000000000001000
+CPU2TOCLA2IPC    0x0000000000204000 0x0000000000001000
+CLA2TOCPU2IPC    0x0000000000205000 0x0000000000001000
+XINTFA           0x0000000020000000 0x0000000000001000
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+                0x0000000000010000                __data_start__ = ORIGIN (GS_RAM_CORE0_DATA)
+                0x0000000000010000                . = __data_start__
+
+.rodata         0x0000000000010000       0xf9
+ *(.rodata)
+ *(.rodata.*)
+ .rodata.str1.1
+                0x0000000000010000        0xb autotests/cla/bgtask_interrupt.o
+ .rodata.str1.1
+                0x000000000001000b       0x23 autotests/cla/subcommon.o
+                                         0x27 (size before relaxing)
+ *fill*         0x000000000001002e        0x2 
+ .rodata.cst4   0x0000000000010030        0xc autotests/common.o
+ .rodata.cst4   0x000000000001003c        0xc ../libv2/libprintf.a(ee_printf.o)
+                                         0x14 (size before relaxing)
+ .rodata.printf
+                0x0000000000010048       0x60 ../libv2/libprintf.a(ee_printf.o)
+ .rodata.str1.1
+                0x00000000000100a8       0x51 ../libv2/libprintf.a(ee_printf.o)
+ .rodata.cst4   0x0000000000000000        0x4 ../libv2/libm.a(lib_a-sf_fpclassify.o)
+
+.data           0x0000000000010100      0x430
+ *(.data)
+ .data          0x0000000000010100      0x430 ../libv2/libc.a(lib_a-impure.o)
+                0x0000000000010100                _impure_ptr
+ *(.data.*)
+
+.sdata
+ *(.sdata)
+ *(.sdata.*)
+                0x0000000000010530                __bss_start = .
+
+.sbss
+ *(.sbss)
+ *(.sbss.*)
+ *(.scommon)
+
+.bss            0x0000000000010530        0x8
+ *(.bss)
+ *(.bss.*)
+ .bss.sim_env_flag
+                0x0000000000010530        0x1 autotests/common.o
+                0x0000000000010530                sim_env_flag
+ *fill*         0x0000000000010531        0x3 
+ .bss.dbg_uart  0x0000000000010534        0x4 autotests/common.o
+                0x0000000000010534                dbg_uart
+ *(COMMON)
+                0x0000000000010538                __data_end__ = .
+
+.noinit_data    0x0000000000010538       0xc8
+                0x0000000000010600                . = ALIGN (0x100)
+ *fill*         0x0000000000010538       0xc8 
+ *(.noinit_data)
+
+.text.qxbootdebug
+                0x0000000000280000       0x50
+ *(.text.qxboot0debug)
+ .text.qxboot0debug
+                0x0000000000280000       0x48 device/startup.o
+ *(.text.qxbootinit)
+                0x0000000000280050                . = ALIGN (0x10)
+ *fill*         0x0000000000280048        0x8 00000080
+                0x0000000000030000                __text_start__ = ORIGIN (GS_RAM_CORE0_INST)
+                0x0000000000030000                . = __text_start__
+
+.text           0x0000000000030000     0x5b80
+ *(.text.interrupt.vector)
+ .text.interrupt.vector
+                0x0000000000030000      0xf1c device/startup.o
+                0x0000000000030400                _dsp_start
+                0x0000000000030eb8                qx_precise_delay
+                0x0000000000030ee0                fast_interrupt_initvectortable
+ *(.text.interrupt.routine)
+ *fill*         0x0000000000030f1c        0x4 00000080
+ .text.interrupt.routine
+                0x0000000000030f20      0x880 autotests/cla/subcommon.o
+                0x0000000000030f20                claint1ISR
+                0x0000000000031030                claint2ISR
+                0x0000000000031140                claint3ISR
+                0x0000000000031250                claint4ISR
+                0x0000000000031360                claint5ISR
+                0x0000000000031470                claint6ISR
+                0x0000000000031580                claint7ISR
+                0x0000000000031690                claint8ISR
+ .text.interrupt.routine
+                0x00000000000317a0       0xc0 device/driverlib/interrupt.o
+                0x00000000000317a0                Interrupt_defaultHandler
+                0x00000000000317e0                Interrupt_illegalOperationHandler
+                0x0000000000031820                Interrupt_nmiHandler
+ *(.text)
+ .text          0x0000000000031860      0x2e0 ../libv2/libm.a(lib_a-sf_modf.o)
+                0x0000000000031860                modff
+                0x00000000000319d0                modf
+ .text          0x0000000000031b40       0xd0 ../libv2/libm.a(lib_a-sf_fpclassify.o)
+                0x0000000000031b40                __fpclassifyf
+ .text          0x0000000000031c10       0x90 ../libv2/libc.a(lib_a-rand.o)
+                0x0000000000031c10                srand
+                0x0000000000031c40                rand
+ .text          0x0000000000031ca0      0x1b0 ../libv2/librt.a(udivsi3.o)
+                0x0000000000031ca0                __udivsi3
+ *(.text.*)
+ .text.bgtask_interrupt
+                0x0000000000031e50      0x340 autotests/cla/bgtask_interrupt.o
+                0x0000000000031e50                bgtask_interrupt
+ .text.CLA_mapTaskVector
+                0x0000000000032190       0x40 autotests/cla/bgtask_interrupt.o
+ .text.CLA_enableIACK
+                0x00000000000321d0       0x30 autotests/cla/bgtask_interrupt.o
+ .text.CLA_enableTasks
+                0x0000000000032200       0x40 autotests/cla/bgtask_interrupt.o
+ .text.tests_core0
+                0x0000000000032240       0x60 autotests/cla/bgtask_interrupt.o
+                0x0000000000032240                tests_core0
+ .text.SysCtl_enablePeripheral
+                0x00000000000322a0       0x70 autotests/cla/bgtask_interrupt.o
+ .text.cla1_ISR
+                0x0000000000032310       0x40 autotests/cla/subcommon.o
+ .text.cla2_ISR
+                0x0000000000032350       0x40 autotests/cla/subcommon.o
+ .text.cla3_ISR
+                0x0000000000032390       0x40 autotests/cla/subcommon.o
+ .text.cla4_ISR
+                0x00000000000323d0       0x40 autotests/cla/subcommon.o
+ .text.cla5_ISR
+                0x0000000000032410       0x40 autotests/cla/subcommon.o
+ .text.cla6_ISR
+                0x0000000000032450       0x40 autotests/cla/subcommon.o
+ .text.cla7_ISR
+                0x0000000000032490       0x40 autotests/cla/subcommon.o
+ .text.cla8_ISR
+                0x00000000000324d0       0x40 autotests/cla/subcommon.o
+ .text.putchar  0x0000000000032510       0xd0 autotests/common.o
+                0x0000000000032510                putchar
+ .text.StdOutInit
+                0x00000000000325e0      0x290 autotests/common.o
+                0x00000000000325e0                StdOutInit
+ .text.EndSimulation
+                0x0000000000032870       0x30 autotests/common.o
+                0x0000000000032870                EndSimulation
+ .text.Device_init
+                0x00000000000328a0       0xb0 device/device.o
+                0x00000000000328a0                Device_init
+ .text.SysCtl_setLowSpeedClock
+                0x0000000000032950       0x40 device/device.o
+ .text.Flash_setClkDiv
+                0x0000000000032990       0x30 device/device.o
+ .text.CLA_setTriggerSource
+                0x00000000000329c0       0xb0 device/driverlib/cla.o
+                0x00000000000329c0                CLA_setTriggerSource
+ .text.GPIO_setDirectionMode
+                0x0000000000032a70       0xc0 device/driverlib/gpio.o
+                0x0000000000032a70                GPIO_setDirectionMode
+ .text.GPIO_setPadConfig
+                0x0000000000032b30      0x1a0 device/driverlib/gpio.o
+                0x0000000000032b30                GPIO_setPadConfig
+ .text.GPIO_setPinConfig
+                0x0000000000032cd0       0xc0 device/driverlib/gpio.o
+                0x0000000000032cd0                GPIO_setPinConfig
+ .text.Interrupt_initVectorTable
+                0x0000000000032d90       0x90 device/driverlib/interrupt.o
+                0x0000000000032d90                Interrupt_initVectorTable
+ .text.SysCtl_getClock
+                0x0000000000032e20      0x570 device/driverlib/sysctl.o
+                0x0000000000032e20                SysCtl_getClock
+ .text.SysCtl_isMCDClockFailureDetected
+                0x0000000000033390       0x30 device/driverlib/sysctl.o
+ .text.SysCtl_setClock
+                0x00000000000333c0      0x390 device/driverlib/sysctl.o
+                0x00000000000333c0                SysCtl_setClock
+ .text.SysCtl_selectOscSource
+                0x0000000000033750      0x180 device/driverlib/sysctl.o
+                0x0000000000033750                SysCtl_selectOscSource
+ .text.SysCtl_delay
+                0x00000000000338d0       0x40 device/driverlib/sysctl.o
+ .text.SysCtl_selectXTAL
+                0x0000000000033910      0x2a0 device/driverlib/sysctl.o
+                0x0000000000033910                SysCtl_selectXTAL
+ .text.SysCtl_pollX1Counter
+                0x0000000000033bb0      0x210 device/driverlib/sysctl.o
+ .text.SysCtl_resetMCD
+                0x0000000000033dc0       0x30 device/driverlib/sysctl.o
+ .text.set_exp_start
+                0x0000000000033df0       0x40 main.o
+                0x0000000000033df0                set_exp_start
+ .text.main     0x0000000000033e30      0x120 main.o
+                0x0000000000033e30                main
+ .text.puts     0x0000000000033f50       0x70 ../libv2/libprintf.a(ee_printf.o)
+                0x0000000000033f50                puts
+ .text.printf   0x0000000000033fc0     0x12f0 ../libv2/libprintf.a(ee_printf.o)
+                0x0000000000033fc0                printf
+ .text.skip_atoi
+                0x00000000000352b0       0x60 ../libv2/libprintf.a(ee_printf.o)
+ .text.strnlen  0x0000000000035310       0x48 ../libv2/libprintf.a(ee_printf.o)
+ *fill*         0x0000000000035358        0x8 00000080
+ .text.number   0x0000000000035360      0x42c ../libv2/libprintf.a(ee_printf.o)
+ *fill*         0x000000000003578c        0x4 00000080
+ .text.cvt      0x0000000000035790      0x3f0 ../libv2/libprintf.a(ee_printf.o)
+                0x0000000000035b80                . = ALIGN (0x10)
+                0x0000000000035b80                __text_end__ = .
+                0x0000000000008000                __cla_data_start__ = ORIGIN (GS_RAM_CORE0_CLA_DATA)
+                0x0000000000008000                . = __cla_data_start__
+
+.cla.rodata
+ *(.cla_rodata)
+ *(.cla_rodata.*)
+
+.cla.data
+ *(.cla_data)
+ *(.cla_data.*)
+                0x0000000000008000                __cla_bss_start = .
+
+.cla.bss
+ *(.cla_bss)
+ *(.cla_bss.*)
+                0x0000000000008000                __cla_data_end__ = .
+                0x0000000000000000                __cla_text_start__ = ORIGIN (GS_RAM_CORE0_CLA_INST)
+                0x0000000000000000                . = __cla_text_start__
+
+.cla.text       0x0000000000000000     0x6620
+ *(.cla_text.interrupt.vector)
+ *(.cla_text)
+ .cla_text      0x0000000000000000      0x44c cla_task.o
+                0x0000000000000000                Cla1Task1
+                0x000000000000008c                Cla1Task2
+                0x0000000000000134                Cla1Task3
+                0x00000000000001dc                Cla1Task4
+                0x0000000000000264                Cla1Task5
+                0x00000000000002e4                Cla1Task6
+                0x0000000000000368                Cla1Task7
+                0x00000000000003ec                Cla1Task8
+ .cla_text      0x000000000000044c     0x61d4 task8.o
+                0x000000000000044c                task8
+ *(.cla_text.*)
+                0x0000000000006620                . = ALIGN (0x10)
+                0x0000000000006620                __cla_text_end__ = .
+
+.cla.cpu2cla.data
+                0x0000000000202000        0x8
+ *(.cpu2cla_data)
+ .cpu2cla_data  0x0000000000202000        0x8 cla_task.o
+                0x0000000000202000                tmp_data
+                0x0000000000202004                tmp_fdata
+
+.cla.cla2cpu.data
+                0x0000000000203000       0x30
+ *(.cla2cpu_data)
+ .cla2cpu_data  0x0000000000203000       0x30 cla_task.o
+                0x0000000000203000                cla_f1data
+                0x0000000000203004                cla_f2data
+                0x0000000000203008                cla_f3data
+                0x000000000020300c                cla_f4data
+                0x0000000000203010                cla_f5data
+                0x0000000000203014                cla_f6data
+                0x0000000000203018                cla_f7data
+                0x000000000020301c                cla_data
+                0x0000000000203020                cla_fdata
+                0x0000000000203024                softinten
+                0x0000000000203028                softintfrc
+                0x000000000020302c                cla_f8data
+                0x000000000002fc00                PIEVECTTABLE_BASE = ORIGIN (GS_RAM_CORE0_IVEC)
+                0x000000000002fc00                PROVIDE (_DSP_STACK_TOP, (ORIGIN (GS_RAM_CORE0_DATA) + 0x1fc00))
+                0x0000000000010000                PROVIDE (_CLA_STACK_TOP, (ORIGIN (GS_RAM_CORE0_CLA_DATA) + 0x8000))
+                0x0000000000000006                PROVIDE (_core0_exp_start, ((ORIGIN (GS_RAM_CORE0_INST) >> 0xf) & 0xf))
+                0x0000000000030000                PROVIDE (_CORE0_IRAM_START, ORIGIN (GS_RAM_CORE0_INST))
+                0x0000000000010538                PROVIDE (__end, __data_end__)
+                0x000000000002f800                PROVIDE (__stack_end, ((ORIGIN (GS_RAM_CORE0_DATA) + 0x1fc00) - 0x400))
+
+PieCtrlRegsFile
+                0x00000000007f0100       0x6c
+ *(PieCtrlRegsFile)
+ PieCtrlRegsFile
+                0x00000000007f0100       0x6c device/driverlib/globalvariabledefs.o
+                0x00000000007f0100                PieCtrlRegs
+
+PieVectTableFile
+                0x000000000002fc00      0x400
+ *(PieVectTableFile)
+ PieVectTableFile
+                0x000000000002fc00      0x400 device/driverlib/globalvariabledefs.o
+                0x000000000002fc00                PieVectTable
+
+CpuTimer0RegsFile
+                0x00000000007f0300       0x14
+ *(CpuTimer0RegsFile)
+ CpuTimer0RegsFile
+                0x00000000007f0300       0x14 device/driverlib/globalvariabledefs.o
+                0x00000000007f0300                CpuTimer0Regs
+
+CpuTimer1RegsFile
+                0x00000000007f0320       0x14
+ *(CpuTimer1RegsFile)
+ CpuTimer1RegsFile
+                0x00000000007f0320       0x14 device/driverlib/globalvariabledefs.o
+                0x00000000007f0320                CpuTimer1Regs
+
+CpuTimer2RegsFile
+                0x00000000007f0340       0x14
+ *(CpuTimer2RegsFile)
+ CpuTimer2RegsFile
+                0x00000000007f0340       0x14 device/driverlib/globalvariabledefs.o
+                0x00000000007f0340                CpuTimer2Regs
+
+ExpRegsFile     0x00000000007f0700       0x24
+ *(ExpRegsFile)
+ ExpRegsFile    0x00000000007f0700       0x24 device/driverlib/globalvariabledefs.o
+                0x00000000007f0700                ExpRegs
+
+WdRegsFile      0x00000000007f0800       0x14
+ *(WdRegsFile)
+ WdRegsFile     0x00000000007f0800       0x14 device/driverlib/globalvariabledefs.o
+                0x00000000007f0800                WdRegs
+
+IpcEventRegsFile
+ *(IpcEventRegsFile)
+
+IpcCmdRegsFile
+ *(IpcCmdRegsFile)
+
+TraceBufferRegsFile
+                0x00000000007f0c00       0x14
+ *(TraceBufferRegsFile)
+ TraceBufferRegsFile
+                0x00000000007f0c00       0x14 device/driverlib/globalvariabledefs.o
+                0x00000000007f0c00                TraceBufferRegs
+
+WatchPointRegsFile
+                0x00000000007f0d00       0x2c
+ *(WatchPointRegsFile)
+ WatchPointRegsFile
+                0x00000000007f0d00       0x2c device/driverlib/globalvariabledefs.o
+                0x00000000007f0d00                WatchPointRegs
+
+EccRegsFile     0x00000000007f0e00        0xc
+ *(EccRegsFile)
+ EccRegsFile    0x00000000007f0e00        0xc device/driverlib/globalvariabledefs.o
+                0x00000000007f0e00                EccRegs
+
+EradGlobalRegsFile
+                0x00000000007f0f00       0x10
+ *(EradGlobalRegsFile)
+ EradGlobalRegsFile
+                0x00000000007f0f00       0x10 device/driverlib/globalvariabledefs.o
+                0x00000000007f0f00                EradGlobalRegs
+
+EradHWBP1RegsFile
+                0x00000000007f1000       0x14
+ *(EradHWBP1RegsFile)
+ EradHWBP1RegsFile
+                0x00000000007f1000       0x14 device/driverlib/globalvariabledefs.o
+                0x00000000007f1000                EradHWBP1Regs
+
+EradHWBP2RegsFile
+                0x00000000007f1100       0x14
+ *(EradHWBP2RegsFile)
+ EradHWBP2RegsFile
+                0x00000000007f1100       0x14 device/driverlib/globalvariabledefs.o
+                0x00000000007f1100                EradHWBP2Regs
+
+EradHWBP3RegsFile
+                0x00000000007f1200       0x14
+ *(EradHWBP3RegsFile)
+ EradHWBP3RegsFile
+                0x00000000007f1200       0x14 device/driverlib/globalvariabledefs.o
+                0x00000000007f1200                EradHWBP3Regs
+
+EradHWBP4RegsFile
+                0x00000000007f1300       0x14
+ *(EradHWBP4RegsFile)
+ EradHWBP4RegsFile
+                0x00000000007f1300       0x14 device/driverlib/globalvariabledefs.o
+                0x00000000007f1300                EradHWBP4Regs
+
+EradHWBP5RegsFile
+                0x00000000007f1400       0x14
+ *(EradHWBP5RegsFile)
+ EradHWBP5RegsFile
+                0x00000000007f1400       0x14 device/driverlib/globalvariabledefs.o
+                0x00000000007f1400                EradHWBP5Regs
+
+EradHWBP6RegsFile
+                0x00000000007f1500       0x14
+ *(EradHWBP6RegsFile)
+ EradHWBP6RegsFile
+                0x00000000007f1500       0x14 device/driverlib/globalvariabledefs.o
+                0x00000000007f1500                EradHWBP6Regs
+
+EradHWBP7RegsFile
+                0x00000000007f1600       0x14
+ *(EradHWBP7RegsFile)
+ EradHWBP7RegsFile
+                0x00000000007f1600       0x14 device/driverlib/globalvariabledefs.o
+                0x00000000007f1600                EradHWBP7Regs
+
+EradHWBP8RegsFile
+                0x00000000007f1700       0x14
+ *(EradHWBP8RegsFile)
+ EradHWBP8RegsFile
+                0x00000000007f1700       0x14 device/driverlib/globalvariabledefs.o
+                0x00000000007f1700                EradHWBP8Regs
+
+EradCounter1RegsFile
+                0x00000000007f1800       0x1c
+ *(EradCounter1RegsFile)
+ EradCounter1RegsFile
+                0x00000000007f1800       0x1c device/driverlib/globalvariabledefs.o
+                0x00000000007f1800                EradCounter1Regs
+
+EradCounter2RegsFile
+                0x00000000007f1900       0x1c
+ *(EradCounter2RegsFile)
+ EradCounter2RegsFile
+                0x00000000007f1900       0x1c device/driverlib/globalvariabledefs.o
+                0x00000000007f1900                EradCounter2Regs
+
+EradCounter3RegsFile
+                0x00000000007f1a00       0x1c
+ *(EradCounter3RegsFile)
+ EradCounter3RegsFile
+                0x00000000007f1a00       0x1c device/driverlib/globalvariabledefs.o
+                0x00000000007f1a00                EradCounter3Regs
+
+EradCounter4RegsFile
+                0x00000000007f1b00       0x1c
+ *(EradCounter4RegsFile)
+ EradCounter4RegsFile
+                0x00000000007f1b00       0x1c device/driverlib/globalvariabledefs.o
+                0x00000000007f1b00                EradCounter4Regs
+
+ClkCfgRegsFile  0x0000000001000000       0x5c
+ *(ClkCfgRegsFile)
+ ClkCfgRegsFile
+                0x0000000001000000       0x5c device/driverlib/globalvariabledefs.o
+                0x0000000001000000                ClkCfgRegs
+
+CpuSysRegsFile  0x0000000001001000      0x31c
+ *(CpuSysRegsFile)
+ CpuSysRegsFile
+                0x0000000001001000      0x31c device/driverlib/globalvariabledefs.o
+                0x0000000001001000                CpuSysRegs
+
+DevCfgRegsFile  0x0000000001001000      0x3f8
+ *(DevCfgRegsFile)
+ DevCfgRegsFile
+                0x0000000001001000      0x3f8 device/driverlib/globalvariabledefs.o
+                0x0000000001001000                DevCfgRegs
+
+XintRegsFile    0x00000000010011b0       0x2c
+ *(XintRegsFile)
+ XintRegsFile   0x00000000010011b0       0x2c device/driverlib/globalvariabledefs.o
+                0x00000000010011b0                XintRegs
+
+NmiIntruptRegsFile
+                0x0000000001001200       0x34
+ *(NmiIntruptRegsFile)
+ NmiIntruptRegsFile
+                0x0000000001001200       0x34 device/driverlib/globalvariabledefs.o
+                0x0000000001001200                NmiIntruptRegs
+
+Dcc0RegsFile    0x0000000001062000       0x2c
+ *(Dcc0RegsFile)
+ Dcc0RegsFile   0x0000000001062000       0x2c device/driverlib/globalvariabledefs.o
+                0x0000000001062000                Dcc0Regs
+
+Dcc1RegsFile    0x0000000001063000       0x2c
+ *(Dcc1RegsFile)
+ Dcc1RegsFile   0x0000000001063000       0x2c device/driverlib/globalvariabledefs.o
+                0x0000000001063000                Dcc1Regs
+
+DmaRegsFile     0x0000000001002000      0x1c0
+ *(DmaRegsFile)
+ DmaRegsFile    0x0000000001002000      0x1c0 device/driverlib/globalvariabledefs.o
+                0x0000000001002000                DmaRegs
+
+DmaCh1RegsFile
+ *(DmaCH1RegsFile)
+
+DmaCh2RegsFile
+ *(DmaCH2RegsFile)
+
+DmaCh3RegsFile
+ *(DmaCH3RegsFile)
+
+DmaCh4RegsFile
+ *(DmaCH4RegsFile)
+
+DmaCh5RegsFile
+ *(DmaCH5RegsFile)
+
+DmaCh6RegsFile
+ *(DmaCH6RegsFile)
+
+AnalogSubsysRegsFile
+                0x0000000001049000       0x3c
+ *(AnalogSubsysRegsFile)
+ AnalogSubsysRegsFile
+                0x0000000001049000       0x3c device/driverlib/globalvariabledefs.o
+                0x0000000001049000                AnalogSubsysRegs
+
+DcsmBank0Z1RegsFile
+                0x0000000001051000       0x40
+ *(DcsmBank0Z1RegsFile)
+ DcsmBank0Z1RegsFile
+                0x0000000001051000       0x40 device/driverlib/globalvariabledefs.o
+                0x0000000001051000                DcsmBank0Z1Regs
+
+DcsmBank0Z2RegsFile
+                0x0000000001051800       0x30
+ *(DcsmBank0Z2RegsFile)
+ DcsmBank0Z2RegsFile
+                0x0000000001051800       0x30 device/driverlib/globalvariabledefs.o
+                0x0000000001051800                DcsmBank0Z2Regs
+
+DcsmCommonRegsFile
+ *(DcsmCommonRegs)
+
+DcsmBank1Z1RegsFile
+                0x0000000001053000       0x10
+ *(DcsmBank1Z1RegsFile)
+ DcsmBank1Z1RegsFile
+                0x0000000001053000       0x10 device/driverlib/globalvariabledefs.o
+                0x0000000001053000                DcsmBank1Z1Regs
+
+DcsmBank1Z2RegsFile
+                0x0000000001053800       0x10
+ *(DcsmBank1Z2RegsFile)
+ DcsmBank1Z2RegsFile
+                0x0000000001053800       0x10 device/driverlib/globalvariabledefs.o
+                0x0000000001053800                DcsmBank1Z2Regs
+
+ECap1RegsFile   0x0000000001014000       0x40
+ *(ECap1RegsFile)
+ ECap1RegsFile  0x0000000001014000       0x40 device/driverlib/globalvariabledefs.o
+                0x0000000001014000                ECap1Regs
+
+ECap2RegsFile   0x0000000001014100       0x40
+ *(ECap2RegsFile)
+ ECap2RegsFile  0x0000000001014100       0x40 device/driverlib/globalvariabledefs.o
+                0x0000000001014100                ECap2Regs
+
+ECap3RegsFile   0x0000000001014200       0x40
+ *(ECap3RegsFile)
+ ECap3RegsFile  0x0000000001014200       0x40 device/driverlib/globalvariabledefs.o
+                0x0000000001014200                ECap3Regs
+
+HRCap3RegsFile
+ *(HRCap3RegsFile)
+
+SyncSocRegsFile
+                0x0000000001014400        0xc
+ *(SyncSocRegsFile)
+ SyncSocRegsFile
+                0x0000000001014400        0xc device/driverlib/globalvariabledefs.o
+                0x0000000001014400                SyncSocRegs
+
+SFORegsFile     0x0000000001014500       0x4c
+ *(SFORegsFile)
+ SFORegsFile    0x0000000001014500       0x4c device/driverlib/globalvariabledefs.o
+                0x0000000001014500                SFORegs
+
+SFOHHRRegsFile  0x0000000001014600       0x4c
+ *(SFOHHRRegsFile)
+ SFOHHRRegsFile
+                0x0000000001014600       0x4c device/driverlib/globalvariabledefs.o
+                0x0000000001014600                SFOHHRRegs
+
+Cla1RegsFile    0x00000000007f1c00       0x58
+ *(Cla1RegsFile)
+ Cla1RegsFile   0x00000000007f1c00       0x58 device/driverlib/globalvariabledefs.o
+                0x00000000007f1c00                Cla1Regs
+
+EPwm1RegsFile   0x0000000001010000      0x200
+ *(EPwm1RegsFile)
+ EPwm1RegsFile  0x0000000001010000      0x200 device/driverlib/globalvariabledefs.o
+                0x0000000001010000                EPwm1Regs
+
+EPwm2RegsFile   0x0000000001010200      0x200
+ *(EPwm2RegsFile)
+ EPwm2RegsFile  0x0000000001010200      0x200 device/driverlib/globalvariabledefs.o
+                0x0000000001010200                EPwm2Regs
+
+EPwm3RegsFile   0x0000000001010400      0x200
+ *(EPwm3RegsFile)
+ EPwm3RegsFile  0x0000000001010400      0x200 device/driverlib/globalvariabledefs.o
+                0x0000000001010400                EPwm3Regs
+
+EPwm4RegsFile   0x0000000001010600      0x200
+ *(EPwm4RegsFile)
+ EPwm4RegsFile  0x0000000001010600      0x200 device/driverlib/globalvariabledefs.o
+                0x0000000001010600                EPwm4Regs
+
+EPwm5RegsFile   0x0000000001010800      0x200
+ *(EPwm5RegsFile)
+ EPwm5RegsFile  0x0000000001010800      0x200 device/driverlib/globalvariabledefs.o
+                0x0000000001010800                EPwm5Regs
+
+EPwm6RegsFile   0x0000000001010a00      0x200
+ *(EPwm6RegsFile)
+ EPwm6RegsFile  0x0000000001010a00      0x200 device/driverlib/globalvariabledefs.o
+                0x0000000001010a00                EPwm6Regs
+
+EPwm7RegsFile   0x0000000001010c00      0x200
+ *(EPwm7RegsFile)
+ EPwm7RegsFile  0x0000000001010c00      0x200 device/driverlib/globalvariabledefs.o
+                0x0000000001010c00                EPwm7Regs
+
+EPwm8RegsFile   0x0000000001010e00      0x200
+ *(EPwm8RegsFile)
+ EPwm8RegsFile  0x0000000001010e00      0x200 device/driverlib/globalvariabledefs.o
+                0x0000000001010e00                EPwm8Regs
+
+EQep1RegsFile   0x0000000001012000       0x70
+ *(EQep1RegsFile)
+ EQep1RegsFile  0x0000000001012000       0x70 device/driverlib/globalvariabledefs.o
+                0x0000000001012000                EQep1Regs
+
+EQep2RegsFile   0x0000000001012800       0x70
+ *(EQep2RegsFile)
+ EQep2RegsFile  0x0000000001012800       0x70 device/driverlib/globalvariabledefs.o
+                0x0000000001012800                EQep2Regs
+
+DacaRegsFile    0x0000000001016000       0x1c
+ *(DacaRegsFile)
+ DacaRegsFile   0x0000000001016000       0x1c device/driverlib/globalvariabledefs.o
+                0x0000000001016000                DacaRegs
+
+DacbRegsFile    0x0000000001016040       0x1c
+ *(DacbRegsFile)
+ DacbRegsFile   0x0000000001016040       0x1c device/driverlib/globalvariabledefs.o
+                0x0000000001016040                DacbRegs
+
+Cmpss1RegsFile  0x0000000001018000       0x54
+ *(Cmpss1RegsFile)
+ Cmpss1RegsFile
+                0x0000000001018000       0x54 device/driverlib/globalvariabledefs.o
+                0x0000000001018000                Cmpss1Regs
+
+Cmpss2RegsFile  0x0000000001018800       0x54
+ *(Cmpss2RegsFile)
+ Cmpss2RegsFile
+                0x0000000001018800       0x54 device/driverlib/globalvariabledefs.o
+                0x0000000001018800                Cmpss2Regs
+
+Cmpss3RegsFile  0x0000000001019000       0x54
+ *(Cmpss3RegsFile)
+ Cmpss3RegsFile
+                0x0000000001019000       0x54 device/driverlib/globalvariabledefs.o
+                0x0000000001019000                Cmpss3Regs
+
+Cmpss4RegsFile  0x0000000001019800       0x54
+ *(Cmpss4RegsFile)
+ Cmpss4RegsFile
+                0x0000000001019800       0x54 device/driverlib/globalvariabledefs.o
+                0x0000000001019800                Cmpss4Regs
+
+AdcbResultRegsFile
+                0x0000000001030310       0x50
+ *(AdcbResultRegsFile)
+ AdcbResultRegsFile
+                0x0000000001030310       0x50 device/driverlib/globalvariabledefs.o
+                0x0000000001030310                AdcbResultRegs
+
+AdcaResultRegsFile
+                0x0000000001030110       0x50
+ *(AdcaResultRegsFile)
+ AdcaResultRegsFile
+                0x0000000001030110       0x50 device/driverlib/globalvariabledefs.o
+                0x0000000001030110                AdcaResultRegs
+
+AdccResultRegsFile
+                0x0000000001030510       0x50
+ *(AdccResultRegsFile)
+ AdccResultRegsFile
+                0x0000000001030510       0x50 device/driverlib/globalvariabledefs.o
+                0x0000000001030510                AdccResultRegs
+
+AdcaRegsFile    0x0000000001032000      0x114
+ *(AdcaRegsFile)
+ AdcaRegsFile   0x0000000001032000      0x114 device/driverlib/globalvariabledefs.o
+                0x0000000001032000                AdcaRegs
+
+AdcbRegsFile    0x0000000001032200      0x114
+ *(AdcbRegsFile)
+ AdcbRegsFile   0x0000000001032200      0x114 device/driverlib/globalvariabledefs.o
+                0x0000000001032200                AdcbRegs
+
+AdccRegsFile    0x0000000001032400      0x114
+ *(AdccRegsFile)
+ AdccRegsFile   0x0000000001032400      0x114 device/driverlib/globalvariabledefs.o
+                0x0000000001032400                AdccRegs
+
+GpioDataRegsFile
+                0x0000000001048000       0x30
+ *(GpioDataRegsFile)
+ GpioDataRegsFile
+                0x0000000001048000       0x30 device/driverlib/globalvariabledefs.o
+                0x0000000001048000                GpioDataRegs
+
+GpioCtrlRegsFile
+                0x0000000001047000      0x304
+ *(GpioCtrlRegsFile)
+ GpioCtrlRegsFile
+                0x0000000001047000      0x304 device/driverlib/globalvariabledefs.o
+                0x0000000001047000                GpioCtrlRegs
+
+InputXbarRegsFile
+                0x0000000001040000       0x44
+ *(InputXbarRegsFile)
+ InputXbarRegsFile
+                0x0000000001040000       0x44 device/driverlib/globalvariabledefs.o
+                0x0000000001040000                InputXbarRegs
+
+OutputXbarRegsFile
+                0x0000000001045000       0x88
+ *(OutputXbarRegsFile)
+ OutputXbarRegsFile
+                0x0000000001045000       0x88 device/driverlib/globalvariabledefs.o
+                0x0000000001045000                OutputXbarRegs
+
+EPwmXbarRegsFile
+                0x0000000001043000       0x98
+ *(EPwmXbarRegsFile)
+ EPwmXbarRegsFile
+                0x0000000001043000       0x98 device/driverlib/globalvariabledefs.o
+                0x0000000001043000                EPwmXbarRegs
+
+XbarRegsFile    0x0000000001041000       0x20
+ *(XbarRegsFile)
+ XbarRegsFile   0x0000000001041000       0x20 device/driverlib/globalvariabledefs.o
+                0x0000000001041000                XbarRegs
+
+SpiaRegsFile    0x0000000001020000       0x38
+ *(SpiaRegsFile)
+ SpiaRegsFile   0x0000000001020000       0x38 device/driverlib/globalvariabledefs.o
+                0x0000000001020000                SpiaRegs
+
+SpibRegsFile    0x0000000001021000       0x38
+ *(SpibRegsFile)
+ SpibRegsFile   0x0000000001021000       0x38 device/driverlib/globalvariabledefs.o
+                0x0000000001021000                SpibRegs
+
+PmbusaRegsFile  0x0000000001023000      0x150
+ *(PmbusaRegsFile)
+ PmbusaRegsFile
+                0x0000000001023000      0x150 device/driverlib/globalvariabledefs.o
+                0x0000000001023000                PmbusaRegs
+
+FsiRxaRegsFile  0x0000000001026000       0xcc
+ *(FsiRxaRegsFile)
+ FsiRxaRegsFile
+                0x0000000001026000       0xcc device/driverlib/globalvariabledefs.o
+                0x0000000001026000                FsiRxaRegs
+
+FsiTxaRegsFile  0x0000000001025000       0x98
+ *(FsiTxaRegsFile)
+ FsiTxaRegsFile
+                0x0000000001025000       0x98 device/driverlib/globalvariabledefs.o
+                0x0000000001025000                FsiTxaRegs
+
+LinaRegsFile    0x0000000001070000       0x3c
+ *(LinaRegsFile)
+ LinaRegsFile   0x0000000001070000       0x3c device/driverlib/globalvariabledefs.o
+                0x0000000001070000                LinaRegs
+
+LinbRegsFile
+ *(LindaRegsFile)
+
+SciaRegsFile    0x0000000001080000       0x40
+ *(SciaRegsFile)
+ SciaRegsFile   0x0000000001080000       0x40 device/driverlib/globalvariabledefs.o
+                0x0000000001080000                SciaRegs
+
+ScibRegsFile    0x0000000001081000       0x40
+ *(ScibRegsFile)
+ ScibRegsFile   0x0000000001081000       0x40 device/driverlib/globalvariabledefs.o
+                0x0000000001081000                ScibRegs
+
+ScicRegsFile    0x0000000001070000       0x40
+ *(ScicRegsFile)
+ ScicRegsFile   0x0000000001070000       0x40 device/driverlib/globalvariabledefs.o
+                0x0000000001070000                ScicRegs
+
+ScidRegsFile
+ *(ScidRegsFile)
+
+I2caRegsFile    0x0000000001082000       0x3c
+ *(I2caRegsFile)
+ I2caRegsFile   0x0000000001082000       0x3c device/driverlib/globalvariabledefs.o
+                0x0000000001082000                I2caRegs
+
+I2cbRegsFile
+ *(I2cbRegsFile)
+
+CanaRegsFile    0x0000000001060000       0xcc
+ *(CanaRegsFile)
+ CanaRegsFile   0x0000000001060000       0xcc device/driverlib/globalvariabledefs.o
+                0x0000000001060000                CanaRegs
+
+CanbRegsFile    0x0000000001061000       0xcc
+ *(CanbRegsFile)
+ CanbRegsFile   0x0000000001061000       0xcc device/driverlib/globalvariabledefs.o
+                0x0000000001061000                CanbRegs
+
+Sdfm1RegsFile   0x000000000101a000      0x100
+ *(Sdfm1RegsFile)
+ Sdfm1RegsFile  0x000000000101a000      0x100 device/driverlib/globalvariabledefs.o
+                0x000000000101a000                Sdfm1Regs
+
+Sdfm2RegsFile   0x000000000101c000      0x100
+ *(Sdfm2RegsFile)
+ Sdfm2RegsFile  0x000000000101c000      0x100 device/driverlib/globalvariabledefs.o
+                0x000000000101c000                Sdfm2Regs
+
+Clb1RegsFile
+ *(Clb1RegsFile)
+
+Clb2RegsFile
+ *(Clb2RegsFile)
+
+Clb3RegsFile
+ *(Clb3RegsFile)
+
+Clb4RegsFile
+ *(Clb4RegsFile)
+
+AesRegsFile
+ *(AesRegsFile)
+
+AesssRegsFile
+ *(AesssRegsFile)
+
+XintfaRegsFile  0x0000000020000000       0x3c
+ *(XintfaRegsFile)
+ XintfaRegsFile
+                0x0000000020000000       0x3c device/driverlib/globalvariabledefs.o
+                0x0000000020000000                XintfaRegs
+
+MsgRamCpu1ToCpu2File
+                0x0000000000100000      0x110
+ *(MsgRamCpu1ToCpu2File)
+ MsgRamCpu1ToCpu2File
+                0x0000000000100000      0x110 device/driverlib/globalvariabledefs.o
+                0x0000000000100000                IPC_CPU1_To_CPU2_PutBuffer
+
+MsgRamCpu2ToCpu1File
+                0x0000000000101000      0x110
+ *(MsgRamCpu2ToCpu1File)
+ MsgRamCpu2ToCpu1File
+                0x0000000000101000      0x110 device/driverlib/globalvariabledefs.o
+                0x0000000000101000                IPC_CPU1_To_CPU2_GetBuffer
+
+Flash0CtrlRegsFile
+                0x00000000010b0000        0xc
+ *(Flash0CtrlRegsFile)
+ Flash0CtrlRegsFile
+                0x00000000010b0000        0xc device/driverlib/globalvariabledefs.o
+                0x00000000010b0000                Flash0CtrlRegs
+
+Cpu1toCpu2IpcRegsFile
+                0x0000000000200000      0x120
+ *(Cpu1toCpu2IpcRegsFile)
+ Cpu1toCpu2IpcRegsFile
+                0x0000000000200000      0x120 device/driverlib/globalvariabledefs.o
+                0x0000000000200000                Cpu1toCpu2IpcRegs
+
+Cpu1toCla1IpcRegsFile
+                0x0000000000201000      0x120
+ *(Cpu1toCla1IpcRegsFile)
+ Cpu1toCla1IpcRegsFile
+                0x0000000000201000      0x120 device/driverlib/globalvariabledefs.o
+                0x0000000000201000                Cpu1toCla1IpcRegs
+
+Cla1toCpu1IpcRegsFile
+                0x0000000000202000      0x120
+ *(Cla1toCpu1IpcRegsFile)
+ Cla1toCpu1IpcRegsFile
+                0x0000000000202000      0x120 device/driverlib/globalvariabledefs.o
+                0x0000000000202000                Cla1toCpu1IpcRegs
+
+Cpu2toCpu1IpcRegsFile
+                0x0000000000203000      0x120
+ *(Cpu2toCpu1IpcRegsFile)
+ Cpu2toCpu1IpcRegsFile
+                0x0000000000203000      0x120 device/driverlib/globalvariabledefs.o
+                0x0000000000203000                Cpu2toCpu1IpcRegs
+
+Cpu2toCla2IpcRegsFile
+                0x0000000000204000      0x120
+ *(Cpu2toCla2IpcRegsFile)
+ Cpu2toCla2IpcRegsFile
+                0x0000000000204000      0x120 device/driverlib/globalvariabledefs.o
+                0x0000000000204000                Cpu2toCla2IpcRegs
+
+Cla2toCpu2IpcRegsFile
+                0x0000000000205000      0x120
+ *(Cla2toCpu2IpcRegsFile)
+ Cla2toCpu2IpcRegsFile
+                0x0000000000205000      0x120 device/driverlib/globalvariabledefs.o
+                0x0000000000205000                Cla2toCpu2IpcRegs
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x0000000000000000       0x30
+ *(.debug_aranges)
+ .debug_aranges
+                0x0000000000000000       0x30 device/startup.o
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x0000000000000000    0x31a9d
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x0000000000000000      0x5fe autotests/cla/bgtask_interrupt.o
+ .debug_info    0x00000000000005fe      0x2eb autotests/cla/subcommon.o
+ .debug_info    0x00000000000008e9      0xc1c autotests/common.o
+ .debug_info    0x0000000000001505      0x2e8 cla_task.o
+ .debug_info    0x00000000000017ed      0x4e3 device/device.o
+ .debug_info    0x0000000000001cd0      0x2bf device/driverlib/cla.o
+ .debug_info    0x0000000000001f8f    0x2ce21 device/driverlib/globalvariabledefs.o
+ .debug_info    0x000000000002edb0      0x5b7 device/driverlib/gpio.o
+ .debug_info    0x000000000002f367      0x165 device/driverlib/interrupt.o
+ .debug_info    0x000000000002f4cc      0x5e1 device/driverlib/sysctl.o
+ .debug_info    0x000000000002faad     0x1d18 device/startup.o
+ .debug_info    0x00000000000317c5       0x58 main.o
+ .debug_info    0x000000000003181d      0x209 ../libv2/libm.a(lib_a-sf_modf.o)
+ .debug_info    0x0000000000031a26       0x77 ../libv2/libm.a(lib_a-sf_fpclassify.o)
+
+.debug_abbrev   0x0000000000000000      0xb51
+ *(.debug_abbrev)
+ .debug_abbrev  0x0000000000000000      0x116 autotests/cla/bgtask_interrupt.o
+ .debug_abbrev  0x0000000000000116       0xcf autotests/cla/subcommon.o
+ .debug_abbrev  0x00000000000001e5      0x14a autotests/common.o
+ .debug_abbrev  0x000000000000032f       0xbe cla_task.o
+ .debug_abbrev  0x00000000000003ed      0x12d device/device.o
+ .debug_abbrev  0x000000000000051a       0x83 device/driverlib/cla.o
+ .debug_abbrev  0x000000000000059d      0x122 device/driverlib/globalvariabledefs.o
+ .debug_abbrev  0x00000000000006bf       0xf7 device/driverlib/gpio.o
+ .debug_abbrev  0x00000000000007b6       0x8b device/driverlib/interrupt.o
+ .debug_abbrev  0x0000000000000841      0x147 device/driverlib/sysctl.o
+ .debug_abbrev  0x0000000000000988       0x1f device/startup.o
+ .debug_abbrev  0x00000000000009a7       0x4b main.o
+ .debug_abbrev  0x00000000000009f2       0xfd ../libv2/libm.a(lib_a-sf_modf.o)
+ .debug_abbrev  0x0000000000000aef       0x62 ../libv2/libm.a(lib_a-sf_fpclassify.o)
+
+.debug_line     0x0000000000000000     0x3183
+ *(.debug_line .debug_line.* .debug_line_end)
+ .debug_line    0x0000000000000000      0x252 autotests/cla/bgtask_interrupt.o
+ .debug_line    0x0000000000000252      0x2fa autotests/cla/subcommon.o
+ .debug_line    0x000000000000054c      0x39b autotests/common.o
+ .debug_line    0x00000000000008e7      0x20d cla_task.o
+ .debug_line    0x0000000000000af4      0x431 device/device.o
+ .debug_line    0x0000000000000f25       0xbe device/driverlib/cla.o
+ .debug_line    0x0000000000000fe3      0x7b9 device/driverlib/globalvariabledefs.o
+ .debug_line    0x000000000000179c      0x601 device/driverlib/gpio.o
+ .debug_line    0x0000000000001d9d      0x24e device/driverlib/interrupt.o
+ .debug_line    0x0000000000001feb      0xa13 device/driverlib/sysctl.o
+ .debug_line    0x00000000000029fe      0x445 device/startup.o
+ .debug_line    0x0000000000002e43       0x7e main.o
+ .debug_line    0x0000000000002ec1      0x1da ../libv2/libm.a(lib_a-sf_modf.o)
+ .debug_line    0x000000000000309b       0xe8 ../libv2/libm.a(lib_a-sf_fpclassify.o)
+
+.debug_frame    0x0000000000000000      0xa84
+ *(.debug_frame)
+ .debug_frame   0x0000000000000000       0x90 autotests/cla/bgtask_interrupt.o
+ .debug_frame   0x0000000000000090      0x31c autotests/cla/subcommon.o
+ .debug_frame   0x00000000000003ac       0x98 autotests/common.o
+ .debug_frame   0x0000000000000444       0xd0 cla_task.o
+ .debug_frame   0x0000000000000514      0x10c device/device.o
+ .debug_frame   0x0000000000000620       0x24 device/driverlib/cla.o
+ .debug_frame   0x0000000000000644      0x11c device/driverlib/gpio.o
+ .debug_frame   0x0000000000000760       0x9c device/driverlib/interrupt.o
+ .debug_frame   0x00000000000007fc      0x1e0 device/driverlib/sysctl.o
+ .debug_frame   0x00000000000009dc       0x38 main.o
+ .debug_frame   0x0000000000000a14       0x4c ../libv2/libm.a(lib_a-sf_modf.o)
+ .debug_frame   0x0000000000000a60       0x24 ../libv2/libm.a(lib_a-sf_fpclassify.o)
+
+.debug_str      0x0000000000000000    0x1101e
+ *(.debug_str)
+ .debug_str     0x0000000000000000      0xea2 autotests/cla/bgtask_interrupt.o
+                                        0xebc (size before relaxing)
+ .debug_str     0x0000000000000ea2      0x158 autotests/cla/subcommon.o
+                                        0x25c (size before relaxing)
+ .debug_str     0x0000000000000ffa      0x4ee autotests/common.o
+                                        0x61c (size before relaxing)
+ .debug_str     0x00000000000014e8       0xfc cla_task.o
+                                        0x1ed (size before relaxing)
+ .debug_str     0x00000000000015e4      0x3fe device/device.o
+                                        0xb0d (size before relaxing)
+ .debug_str     0x00000000000019e2       0x71 device/driverlib/cla.o
+                                        0x7e6 (size before relaxing)
+ .debug_str     0x0000000000001a53     0xecd3 device/driverlib/globalvariabledefs.o
+                                       0xfec0 (size before relaxing)
+ .debug_str     0x0000000000010726      0x3d2 device/driverlib/gpio.o
+                                        0x501 (size before relaxing)
+ .debug_str     0x0000000000010af8       0xd6 device/driverlib/interrupt.o
+                                        0x1ee (size before relaxing)
+ .debug_str     0x0000000000010bce      0x32c device/driverlib/sysctl.o
+                                        0x5d3 (size before relaxing)
+ .debug_str     0x0000000000010efa       0x1d main.o
+                                         0xee (size before relaxing)
+ .debug_str     0x0000000000010f17       0xc7 ../libv2/libm.a(lib_a-sf_modf.o)
+                                        0x145 (size before relaxing)
+ .debug_str     0x0000000000010fde       0x40 ../libv2/libm.a(lib_a-sf_fpclassify.o)
+                                        0x107 (size before relaxing)
+
+.debug_loc      0x0000000000000000      0x21a
+ *(.debug_loc)
+ .debug_loc     0x0000000000000000      0x207 ../libv2/libm.a(lib_a-sf_modf.o)
+ .debug_loc     0x0000000000000207       0x13 ../libv2/libm.a(lib_a-sf_fpclassify.o)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges   0x0000000000000000      0x328
+ *(.debug_ranges)
+ .debug_ranges  0x0000000000000000       0x38 autotests/cla/bgtask_interrupt.o
+ .debug_ranges  0x0000000000000038       0x60 autotests/cla/subcommon.o
+ .debug_ranges  0x0000000000000098       0x38 autotests/common.o
+ .debug_ranges  0x00000000000000d0       0x68 device/device.o
+ .debug_ranges  0x0000000000000138       0x70 device/driverlib/gpio.o
+ .debug_ranges  0x00000000000001a8       0x30 device/driverlib/interrupt.o
+ .debug_ranges  0x00000000000001d8       0xb8 device/driverlib/sysctl.o
+ .debug_ranges  0x0000000000000290       0x38 device/startup.o
+ .debug_ranges  0x00000000000002c8       0x18 main.o
+ .debug_ranges  0x00000000000002e0       0x48 ../libv2/libm.a(lib_a-sf_modf.o)
+
+.debug_macro
+ *(.debug_macro)
+
+.gnu.attributes
+ *(.gnu.attributes)
+
+.gptab.sdata
+ *(.gptab.data)
+ *(.gptab.sdata)
+
+.gptab.sbss
+ *(.gptab.bss)
+ *(.gptab.sbss)
+
+.mdebug.abi32
+ *(.mdebug.abi32)
+
+.mdebug.abiN32
+ *(.mdebug.abiN32)
+
+.mdebug.abi64
+ *(.mdebug.abi64)
+
+.mdebug.abiO64
+ *(.mdebug.abiO64)
+
+.mdebug.eabi32
+ *(.mdebug.eabi32)
+
+.mdebug.eabi64
+ *(.mdebug.eabi64)
+
+.gcc_compiled_long32
+ *(.gcc_compiled_long32)
+
+.gcc_compiled_long64
+ *(.gcc_compiled_long64)
+
+/DISCARD/
+ *(.note.GNU-stack)
+ *(.gnu_debuglink)
+ *(.gnu.lto_*)
+LOAD autotests/cla/bgtask_interrupt.o
+LOAD autotests/cla/subcommon.o
+LOAD autotests/common.o
+LOAD cla_task.o
+LOAD device/device.o
+LOAD device/driverlib/adc.o
+LOAD device/driverlib/aes.o
+LOAD device/driverlib/asysctl.o
+LOAD device/driverlib/bgcrc.o
+LOAD device/driverlib/can.o
+LOAD device/driverlib/cla.o
+LOAD device/driverlib/clb.o
+LOAD device/driverlib/cmpss.o
+LOAD device/driverlib/cputimer.o
+LOAD device/driverlib/dac.o
+LOAD device/driverlib/dcc.o
+LOAD device/driverlib/dcsm.o
+LOAD device/driverlib/dma.o
+LOAD device/driverlib/dma_dw.o
+LOAD device/driverlib/ecap.o
+LOAD device/driverlib/epg.o
+LOAD device/driverlib/epwm.o
+LOAD device/driverlib/eqep.o
+LOAD device/driverlib/erad.o
+LOAD device/driverlib/flash.o
+LOAD device/driverlib/fsi.o
+LOAD device/driverlib/globalvariabledefs.o
+LOAD device/driverlib/gpio.o
+LOAD device/driverlib/hic.o
+LOAD device/driverlib/hr_adc.o
+LOAD device/driverlib/hrcap.o
+LOAD device/driverlib/hrpwm.o
+LOAD device/driverlib/i2c.o
+LOAD device/driverlib/interrupt.o
+LOAD device/driverlib/ipc.o
+LOAD device/driverlib/lin.o
+LOAD device/driverlib/pga.o
+LOAD device/driverlib/pmbus.o
+LOAD device/driverlib/sci.o
+LOAD device/driverlib/sdfm.o
+LOAD device/driverlib/spi.o
+LOAD device/driverlib/sysctl.o
+LOAD device/driverlib/version.o
+LOAD device/driverlib/xbar.o
+LOAD device/startup.o
+LOAD main.o
+LOAD task8.o
+LOAD ../libv2/libfastrt_fpu32v2.a
+LOAD ../ldscript/libqxboot.a
+LOAD ../libv2/libprintf.a
+LOAD ../libv2/libm.a
+LOAD ../libv2/libc.a
+LOAD ../libv2/librt.a
+LOAD ../libv2/libdspsim.a
+OUTPUT(F280039_driver_core0.out elf32-tradlittlemips)

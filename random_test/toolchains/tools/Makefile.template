@@ -1,0 +1,26 @@
+
+
+
+space :=
+space +=
+VPATH := $(subst $(space),:,$(shell $(FIND_PATH) . -type d))
+
+sources = $(wildcard *.c) $(wildcard **/*.c)
+tempors = $(sources:.c=.ll)
+objects = $(sources:.c=.o)
+
+
+
+
+all: $(tempors) $(objects) $(TARGET).out
+
+$(TARGET).out: $(objects)
+	$(GLD_PATH) $(GLD_FLAG) $(addprefix $(BUILD_NAME)/, $^) -o $(BUILD_NAME)/$@ -lc
+
+%.o: %.ll
+	$(LLC_PATH) $(LLC_FLAG) $(BUILD_NAME)/$< -o $(BUILD_NAME)/$@
+
+%.ll: %.c
+	$(CXX_PATH) $(CXX_FLAG) $< -o $(BUILD_NAME)/$@
+
+
