@@ -49,7 +49,6 @@ def app_dir() -> Path:
 
 SCRIPT_DIR = app_dir()
 CONFIG_PATH = SCRIPT_DIR / "config_039.json"
-SETTINGS_PATH = SCRIPT_DIR / "ui_settings.json"
 RUN_SCRIPT = SCRIPT_DIR / "run_039_bg.py"
 OUTPUT_DIR = SCRIPT_DIR / "output"
 CUSTOM_RANDOM_DIR = SCRIPT_DIR / "custom_random"
@@ -176,6 +175,19 @@ def default_settings() -> dict[str, Any]:
         "last_output_dir": "",
         "geometry": "",
     }
+
+
+def config_ui_section(cfg: dict[str, Any]) -> dict[str, Any]:
+    ui = cfg.setdefault("ui", {})
+    defaults = default_settings()
+    for key, value in defaults.items():
+        ui.setdefault(key, value)
+    return ui
+
+
+def save_config_with_ui(cfg: dict[str, Any], settings: dict[str, Any]) -> None:
+    cfg["ui"] = settings
+    save_json(CONFIG_PATH, cfg)
 
 
 def latest_output_dir(start_time: float) -> Path | None:
@@ -716,7 +728,7 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.setWindowTitle(APP_TITLE)
         self.cfg = load_json(CONFIG_PATH, default_config())
-        self.settings = load_json(SETTINGS_PATH, default_settings())
+        self.settings = config_ui_section(self.cfg)
         self.last_output_dir = str(self.settings.get("last_output_dir", ""))
         self.row_output_dirs: dict[int, str] = {}
         self.row_rerun_sources: dict[int, str] = {}
@@ -961,14 +973,12 @@ class MainWindow(QMainWindow):
         self.cfg["local"]["reference_sim"].setdefault("sim_config", "-c qx320f034 --cla")
         self.cfg["local"]["reference_sim"].setdefault("exclude_regs", [0, 30, 31])
         self.cfg["local"]["reference_sim"].setdefault("compare_to_wo", True)
-        save_json(CONFIG_PATH, self.cfg)
-
         self.settings["instr"] = self.instr_spin.value()
         self.settings["run_count"] = self.run_count_spin.value()
         self.settings["sim_timeout"] = self.sim_timeout_spin.value()
         self.settings["last_output_dir"] = self.last_output_dir
         self.settings["geometry"] = bytes(self.saveGeometry().toBase64()).decode("ascii")
-        save_json(SETTINGS_PATH, self.settings)
+        save_config_with_ui(self.cfg, self.settings)
         self._append_log(f"配置已保存: {CONFIG_PATH}\n")
         return True
 
@@ -1099,7 +1109,7 @@ class MainWindow(QMainWindow):
         self.progress_bar.setValue(index)
         self.progress_bar.setFormat(f"{index}/{total}")
         self.settings["last_output_dir"] = self.last_output_dir
-        save_json(SETTINGS_PATH, self.settings)
+        save_config_with_ui(self.cfg, self.settings)
 
     def rerun_table_row(self, row: int) -> None:
         source = self.row_rerun_sources.get(row, "")
@@ -1186,7 +1196,7 @@ class MainWindow(QMainWindow):
         self.settings["run_count"] = self.run_count_spin.value()
         self.settings["sim_timeout"] = self.sim_timeout_spin.value()
         self.settings["last_output_dir"] = self.last_output_dir
-        save_json(SETTINGS_PATH, self.settings)
+        save_config_with_ui(self.cfg, self.settings)
         event.accept()
 
 
