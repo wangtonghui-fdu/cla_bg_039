@@ -136,6 +136,43 @@ the bundle atomically.
 `me3_flush`, `exp_flush` around PC 0xcb8 — that distinguishes "pulse skipped on freeze" vs
 "flag cleared by flush" vs "FPU result lost".
 
+## Scope: what triggers it (FPU vs 3-slot packing)
+
+The dropped writeback is the **extended write port `wenx_s2`**, used only by results the
+decoder marks `wregx_s2` (`core_ex1.v:899 ex1_wgWregX_s2 <= id_wregx_s2`) — long-latency /
+FPU-class results (e.g. `fcvtsf`) that commit ONE pipeline stage later than normal slots. So:
+- The trigger is an **extended/FPU-port writeback disturbed by a BG-task preempt+resume**, NOT
+  3-slot packing. A 3-slot bundle of only normal (single-cycle) ops would not hit it — those
+  all commit through the `me3_valid`-gated normal ports.
+- The 3-slot packing here is incidental: it places `fcvtsf` next to fast ops so the split
+  commit (fast slots at ME3, FPU slot at VEX1) is what makes the lost slot visible.
+
+## CPU vs CLA (RTL alignment + does the CPU have this bug?)
+
+The CLA core was ported from the swift CPU (`rtl/swift_core/core_*.v` → `rtl/CLA/cla_*.v`).
+Comparing the relevant modules:
+- **Datapath is aligned/identical.** The extended-writeback flag pipeline
+  (`ex1→ex2→m1→m2→m3` `wgWregX_s2` registers, each `flush`→0 / `!freeze`→propagate), the ME3
+  stage (`core_m3_scale.v` ≡ `cla_m3_scale.v`, same clear/propagate logic), the VEX1 passthrough
+  (`core_v1_scale.v:153` ≡ `cla_v1_scale.v:167`, the same ungated `assign vexX_wgWregX_s2 =
+  me3_wgWregX_s2`), and the regfile (`core_rf_gr.v` ≡ `cla_rf_gr.v`) are structurally the same.
+- **Divergence is the exception/freeze control.** The CLA ADDED the background-task mechanism:
+  `cla_task_start/end`, `cla_fetch_en` (`cla_freeze.v`), `bgtask_preempted` / `task8_run` /
+  `MSTSBGRND` (`cla_task.v`, `cla_except.v`), and `exp_flush = ~f1_freeze & (exp_start |
+  bgtask_preempted)`. The CPU has NONE of these (grep for `bgtask|task8|preempt` in
+  `rtl/swift_core` is empty).
+
+**Does the bug appear in the CPU? No (not under normal interrupts).** The trigger is the
+CLA-only BG-task **preempt→drain→resume (re-fetch+re-execute)** sequence. A normal CPU
+interrupt traps, vectors, and returns to the saved PC via rfi — it does not drain and
+re-execute the same bundle, so it does not recreate the condition that loses the extended
+writeback. The underlying structural property (extended writeback committing a stage late
+through an ungated VEX1 passthrough) is latent in the CPU too, but it is the CLA's added
+BG-preempt/resume logic — not the ported pipeline — that turns it into a dropped writeback.
+A fully definitive "CPU is safe" claim would still want a check of the CPU's exact
+interrupt-flush timing vs the extended writeback, but the absence of the re-execute mechanism
+makes the CPU not susceptible to THIS failure.
+
 ## How to reproduce
 
 039 builds with the local Windows toolchain (no WSL). From the repo root:
