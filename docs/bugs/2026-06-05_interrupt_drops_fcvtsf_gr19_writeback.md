@@ -81,40 +81,60 @@ the exact interrupt cycle, the full snippet (irq/state/timeline/pc sections of
 recompiled (`make comp_fullchip`); then re-run and `random_w.irq.trace` / `.state.trace`
 will be downloaded.
 
-## Likely RTL issue (high-confidence hypothesis)
+## Interrupt-trace evidence (augmented TB, run 20260605_134615)
 
-The CLA GR register file (`cla.cla_scale.rfgr`) has FIVE write ports, visible in the TB
-snippet: the normal slot ports `wen_s0 / wen_s1 / wen_s2`, and the **extended ports
-`wenx_s1 / wenx_s2`**. ALU/mov/load results commit through the normal ports at the ME3
-stage (`cla.cla_scale.cla_m3_scale.me3_current_pc`); long-latency FPU results (`fcvtsf`,
-the float convert) commit later through an **extended port (`wenx_s2`)**.
+A trace-augmented `c2000_tb.v` was installed on the 039 server (adds
+`cla_bgtask_{irq,state,timeline,pc}_trace.dat`; on `task8_run` falling edge it logs the
+current + previous-cycle extended write ports). Re-running the seed reproduced the bug
+bit-identically (740/738, 368 reg/value) and the W-side traces show the precise sequence
+around the dropped GR19 (`random_w.pc.trace` / `.timeline.trace`):
 
-Mechanism:
-1. The 3-slot bundle issues; the three results have different latency — `movigh GR1` and
-   `load32 GR20` are short, `fcvtsf GR19` is long and is carried one stage deeper to the
-   `wenx_s2` port.
-2. An interrupt is taken in the bundle's commit window. The short-latency slots have
-   ALREADY committed at ME3 (`wen_s0`/`wen_s2`).
-3. The fcvtsf result is still in flight, due to land in GR19 via `wenx_s2` a cycle later.
-4. The interrupt flush/preempt **squashes the not-yet-committed extended-port writeback and
-   does not replay it on return** → GR19 is never written.
+```
+0xc70..0xc88  run=1                 BG task running
+3784874 ns    BG_RUN 1->0           interrupt PREEMPTS at PC 0xc88 (NOT at 0xcb8)
+0xc8c..0xc9c  run=0                 pipeline drains a few instrs, writebacks suppressed
+3785494 ns    BG_RUN 0->1           RESUME, re-fetch from 0xc8c
+0xc8c..0xcb8  run=1                 re-executes the bundle; at 0xcb8 GR1+GR20 commit,
+                                     GR19 (fcvtsf) does NOT  -> dropped
+```
 
-This is exactly why only slot-3 (and only the FPU path) is lost: it is the only writeback
-in the bundle whose commit point is LATER than the interrupt flush point.
+So the interrupt does **not** strike on the writeback cycle (every IRQ_PREEMPT logged
+`wen=00000`). The drop happens on the **re-executed** bundle after resume, and only the
+FPU/extended-port slot is lost.
 
-**RTL files / signals to audit (CLA core pipeline):**
-- `cla.cla_scale.rfgr` — the `wenx_s2` (and `wenx_s1`) extended write-enable generation.
-- The CLA pipeline flush/preempt logic that asserts on interrupt entry (the `preempt`
-  signal seen in `*_state_trace`). Check whether the flush term that kills the writeback
-  enable also (incorrectly) clears `wenx_s2` for an instruction whose sibling slots have
-  already committed.
-- Expected fix shape: either commit the bundle atomically (hold the short slots until the
-  extended-port result also commits), or make the FPU/extended writeback survive / be
-  replayed across interrupt entry instead of being flushed.
+## RTL root cause (CLA core pipeline — audited from rtl/CLA)
 
-(Server traces with the full TB snippet — `*_irq_trace` / `*_state_trace` /
-`*_timeline_trace` — would pin the exact interrupt cycle vs the bundle's commit cycle, but
-the single-dropped-FPU-writeback signature already isolates the `wenx_s2` path.)
+Data path of a GR writeback (from `cla_scale.v`):
+- Normal slots: result → `gr_wen_s0/s2` committed at the ME3 stage.
+- **Extended/FPU slot (fcvtsf): the enable bit `*_wgWregX_s2` rides freeze-gated pipeline
+  registers `ex1→ex2→me1→me2→me3` (`cla_m3_scale`, ports `.flush(me3_flush) .freeze(me3_freeze)`),
+  becomes `me3_wgWregX_s2`, then `cla_v1_scale` (the VEX1 stage) forwards it to
+  `vex1_wgWregX_s2` → regfile `wenx_s2` → `GR[waddrx_s2] <= dinx_s2` (`cla_rf_gr.v`).** The
+  FPU writeback therefore commits ONE STAGE LATER than the normal slots.
+
+The asymmetry that drops it (`cla_v1_scale.v`):
+- Normal writeback enables are validity-gated: `vex1_wgWreg_s2 = me3_valid_s2 && me3_wreg_s2 && ...` (line 162).
+- **Extended writeback enable is an UNGATED combinational passthrough: `assign vex1_wgWregX_s2 = me3_wgWregX_s2;` (line 167).** In this stage `flush` only clears `vex1_synch_*` (lines 113/125) — it does NOT gate the extended writeback. So `wenx_s2` is driven purely by the upstream `*_wgWregX_s2` valid bit, which is squashed/held differently from the rest of the pipeline.
+
+Flush/freeze sources:
+- `cla_except.v:409` `assign exp_flush = ~f1_freeze & (exp_start | bgtask_preempted);`
+- per-stage `me3_flush/vex1_flush/me3_freeze/vex1_freeze/fpu_freeze_s2` generated in `cla_freeze.v`.
+- `cla_task.v` drives `bgtask_preempted` and `task8_run`.
+
+**Prime suspect:** `cla_m3_scale` (generates `me3_wgWregX_s2`) and `cla_freeze.v`. Across the
+BG-task preempt→freeze→resume sequence, the one-cycle extended-writeback valid pulse for the
+long-latency `fcvtsf` is lost (skipped during a freeze edge, or cleared by `me3_flush` while
+its normal-slot siblings already committed / will re-commit on resume). Because `fcvtsf` is
+the only slot whose commit rides the extended `wenx_s2` path, it is the only writeback
+dropped. Fix direction: gate/hold the extended `*_wgWregX_s2` valid coherently with the
+normal-slot validity across freeze/flush (don't let a freeze swallow the pulse, and don't
+flush an extended writeback whose architectural instruction is retiring/replaying), or commit
+the bundle atomically.
+
+**To pin the exact failing cycle**, augment the TB once more to log per-cycle
+`me2/me3 wgWregX_s2`, `vex1_wgWregX_s2`, `me3_freeze`, `vex1_freeze`, `fpu_freeze_s2`,
+`me3_flush`, `exp_flush` around PC 0xcb8 — that distinguishes "pulse skipped on freeze" vs
+"flag cleared by flush" vs "FPU result lost".
 
 ## How to reproduce
 
