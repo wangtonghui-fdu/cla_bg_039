@@ -293,12 +293,13 @@ def run_wsl_checked(cmd: list[str], cwd: Path | None = None, label: str = "wsl c
         raise RuntimeError(f"{label} failed with exit code {proc.returncode}{detail}")
 
 
-def generate_random(cfg: dict[str, Any], case_name: str, instr_count: int, run_dir: Path) -> Path:
+def generate_random(cfg: dict[str, Any], case_name: str, instr_count: int, run_dir: Path, pack: bool = True) -> Path:
     random_test_dir = resolve_local_path(cfg["local"]["random_test_dir"])
     gen_dir = random_test_dir / "instr_generate"
     output_dir = run_dir / "generated"
     env = os.environ.copy()
     env["QX_TEST_CLA"] = "1"
+    env["QX_PACKED_INSTR"] = "1" if pack else "0"
     if cfg["local"].get("disable_cla_addr_regs", False):
         env["QX_DISABLE_CLA_ADDR_REGS"] = "1"
     env["QX_OUTPUT_DIR"] = str(output_dir)
@@ -1307,6 +1308,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--reference-sim", action="store_true", help="Run the local instruction reference simulator.")
     parser.add_argument("--no-reference-sim", action="store_true", help="Skip the local instruction reference simulator.")
     parser.add_argument("--reference-sim-strict", action="store_true", help="Fail the run if the local reference simulator fails.")
+    parser.add_argument("--no-pack", action="store_true", help="Generate unpacked instructions (one real op per bundle, slot-faithful) via the generator's QX_PACKED_INSTR=0.")
     return parser.parse_args(argv)
 
 
@@ -1340,7 +1342,7 @@ def main(argv: list[str] | None = None) -> int:
         if not source_s.exists():
             raise RuntimeError(f"Source .s does not exist: {source_s}")
     else:
-        source_s = generate_random(cfg, args.case, args.instr, run_dir)
+        source_s = generate_random(cfg, args.case, args.instr, run_dir, pack=not args.no_pack)
 
     random_s, task8 = prepare_task8(cfg, source_s, run_dir, args.case)
     log(f"Prepared random source: {random_s}")

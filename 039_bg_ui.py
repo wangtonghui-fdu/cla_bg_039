@@ -370,6 +370,7 @@ class RunWorker(QObject):
         source_s: Path | None = None,
         label: str = "random",
         reference_compare: bool = False,
+        no_pack: bool = False,
     ) -> None:
         super().__init__()
         self.instr_count = instr_count
@@ -378,6 +379,7 @@ class RunWorker(QObject):
         self.source_s = source_s
         self.label = label
         self.reference_compare = reference_compare
+        self.no_pack = no_pack
         self._stop_requested = False
         self._process: subprocess.Popen[str] | None = None
 
@@ -438,6 +440,8 @@ class RunWorker(QObject):
             cmd.append("--reference-sim")
         else:
             cmd.append("--no-reference-sim")
+        if self.no_pack:
+            cmd.append("--no-pack")
         self.log.emit(f"\n===== 第 {index}/{self.total_runs} 次仿真 =====\n")
         if self.source_s is not None:
             self.log.emit(f"使用指定 random.s: {self.source_s}\n")
@@ -794,7 +798,7 @@ class MainWindow(QMainWindow):
         self.sim_timeout_spin.setRange(10, 3600)
         self.sim_timeout_spin.setSuffix(" s")
         self.unpack_pipes_check = QCheckBox("拆包运行")
-        self.unpack_pipes_check.setToolTip("开启后将 s1|s2|s3 拆成单实指令行再生成 task8.s。")
+        self.unpack_pipes_check.setToolTip("开启后让随机生成器不打包(QX_PACKED_INSTR=0),每个 bundle 只放一条真实指令、保持其原始槽位;关闭则正常打包。")
         self.disable_addr_regs_check = QCheckBox("禁用间接寄存器")
         self.disable_addr_regs_check.setToolTip(
             "开启后 CLA 随机生成不选择 OFF/BAR/MR，并排除 GR30，避免间接取址/取指相关寄存器写入。"
@@ -1011,6 +1015,7 @@ class MainWindow(QMainWindow):
             source_s,
             label,
             self.reference_compare_check.isChecked(),
+            self.unpack_pipes_check.isChecked(),
         )
         self.thread = QThread(self)
         self.worker.moveToThread(self.thread)
