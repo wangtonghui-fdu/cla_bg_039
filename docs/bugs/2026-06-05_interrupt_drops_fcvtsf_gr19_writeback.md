@@ -81,13 +81,40 @@ the exact interrupt cycle, the full snippet (irq/state/timeline/pc sections of
 recompiled (`make comp_fullchip`); then re-run and `random_w.irq.trace` / `.state.trace`
 will be downloaded.
 
-## Likely RTL issue
+## Likely RTL issue (high-confidence hypothesis)
 
-When an interrupt is taken on (or around) a parallel bundle that has a writeback in
-**slot 3 / the FPU (`fcvtsf`) write path**, that slot's GR commit is not performed and is
-not replayed on interrupt return. The other slots (slot-0/slot-2 here: `movigh`,
-`load32`) commit normally. Focus the RTL investigation on the slot-3 / FPU writeback
-enable (`cla_rfgr_wen*` for the fcvtsf result) across interrupt entry of a BG bundle.
+The CLA GR register file (`cla.cla_scale.rfgr`) has FIVE write ports, visible in the TB
+snippet: the normal slot ports `wen_s0 / wen_s1 / wen_s2`, and the **extended ports
+`wenx_s1 / wenx_s2`**. ALU/mov/load results commit through the normal ports at the ME3
+stage (`cla.cla_scale.cla_m3_scale.me3_current_pc`); long-latency FPU results (`fcvtsf`,
+the float convert) commit later through an **extended port (`wenx_s2`)**.
+
+Mechanism:
+1. The 3-slot bundle issues; the three results have different latency — `movigh GR1` and
+   `load32 GR20` are short, `fcvtsf GR19` is long and is carried one stage deeper to the
+   `wenx_s2` port.
+2. An interrupt is taken in the bundle's commit window. The short-latency slots have
+   ALREADY committed at ME3 (`wen_s0`/`wen_s2`).
+3. The fcvtsf result is still in flight, due to land in GR19 via `wenx_s2` a cycle later.
+4. The interrupt flush/preempt **squashes the not-yet-committed extended-port writeback and
+   does not replay it on return** → GR19 is never written.
+
+This is exactly why only slot-3 (and only the FPU path) is lost: it is the only writeback
+in the bundle whose commit point is LATER than the interrupt flush point.
+
+**RTL files / signals to audit (CLA core pipeline):**
+- `cla.cla_scale.rfgr` — the `wenx_s2` (and `wenx_s1`) extended write-enable generation.
+- The CLA pipeline flush/preempt logic that asserts on interrupt entry (the `preempt`
+  signal seen in `*_state_trace`). Check whether the flush term that kills the writeback
+  enable also (incorrectly) clears `wenx_s2` for an instruction whose sibling slots have
+  already committed.
+- Expected fix shape: either commit the bundle atomically (hold the short slots until the
+  extended-port result also commits), or make the FPU/extended writeback survive / be
+  replayed across interrupt entry instead of being flushed.
+
+(Server traces with the full TB snippet — `*_irq_trace` / `*_state_trace` /
+`*_timeline_trace` — would pin the exact interrupt cycle vs the bundle's commit cycle, but
+the single-dropped-FPU-writeback signature already isolates the `wenx_s2` path.)
 
 ## How to reproduce
 
