@@ -215,6 +215,9 @@ def failure_reason_for_run(run_dir: str, summary: dict[str, Any]) -> str:
         return "未完成对比"
     if summary.get("pass"):
         return "PASS"
+    if summary.get("failure_reason") == "cr_flag_only":
+        n = summary.get("cr_mismatches", "")
+        return f"CR误差：movc2g 读 CR 标志位差异（CON/CR[4] 未跨中断保护，Bug B）{n} 条，非掉写回/数据损坏"
     alignment_issue = summary.get("alignment_issue") or {}
     if alignment_issue.get("residual_mismatches") == 0:
         side = alignment_issue.get("side", "?")
@@ -351,7 +354,7 @@ def format_compare_brief(result: dict[str, Any]) -> str:
         f"Mismatch: {summary.get('mismatches', '')}\n"
         f"{ref_line}"
         f"失败原因: {failure_reason}\n"
-        f"Reg/value: {summary.get('reg_value_mismatches', '')}\n"
+        f"Reg/value: {summary.get('reg_value_mismatches', '')}（其中 CR误差: {summary.get('cr_mismatches', 0)}）\n"
         f"输出目录: {run_dir}\n"
     )
 
