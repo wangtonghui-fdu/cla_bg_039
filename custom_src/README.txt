@@ -17,33 +17,22 @@ custom_src — 自定义 C/CLA 源码,本地编译并替换测试镜像里的 .o
 原版 .o 在第一次替换时自动备份为 cache 里的 *.orig.bak。
 命令行执行  python update_custom_obj.py --restore  即可全部还原。
 
-依赖(git 不含编译器和头文件,需本机提供)
-------------------------------------------
-1) QX-IDE 的 qxdsp 工具链(clang,3slot_320f)。它同时提供编译器 + 模板头
-   (cla_task.cla 需要的 cpu.h/__clatask、driverlib、device)。
-2) 驱动库源码树——提供 common.h / subcommon.h(bgtask_*.c 和 subcommon.c 需要;
-   cla_task.cla 不需要)。例如克隆的 software_lib_driver(-039_v1_dev) 整个目录。
+依赖:全部放进本目录(custom_src),没有任何其它路径
+----------------------------------------------------
+git 仓库不含编译器和头文件。脚本只在 custom_src 里找,缺了直接报错:
 
-★ 最省事的做法:把它们直接下载/拷贝到本目录(custom_src)即可,零配置:
-      custom_src/qxtools/...           ← QX-IDE 插件里整个 qxtools 文件夹
-                                          (含 toolchain/3slot_320f 和 template,一次搞定 1+模板)
-   或 custom_src/3slot_320f/...        ← 只拷工具链(模板再单拷或装 QX-IDE)
-   或 custom_src/software_lib_driver-039_v1_dev/...   ← 驱动库树(含 libs/ + autotests/)
-   这些大文件已被 .gitignore 排除,不会被提交。
+1) qxdsp 工具链(必需) —— 把 QX-IDE 插件目录里的 qxtools 整个文件夹拷进来(推荐,
+   连模板头一起带上),或只拷 toolchain/3slot_320f:
+       custom_src/qxtools/toolchain/3slot_320f/bin/clang.exe
+    或 custom_src/3slot_320f/bin/clang.exe
+   缺它 → ERROR,无法编译任何文件。
 
-脚本查找顺序:custom_src 内 → config_039.json 指定 → 扫描各盘的 QX-IDE 安装。
-找不到时会明确 WARNING 指出缺哪个。config 显式指定(可选):
+2) 驱动库源码树(编 bgtask_*.c / subcommon.c 才需要;cla_task.cla 不需要)——
+   把 software_lib_driver(-039_v1_dev) 整个目录拷进来(含 libs/ 和 autotests/):
+       custom_src/software_lib_driver-039_v1_dev/...
+   缺它 → WARNING;也可以把所需头文件(common.h 等)直接散放进 custom_src。
 
-    "local": {
-        "custom_obj": {
-            "toolchain_dir": "<...>/qxtools/toolchain/3slot_320f",
-            "template_dir":  "<...>/qxtools/template/QXS320F280039/Empty",
-            "driverlib_dir": "<...>/software_lib_driver-039_v1_dev"
-        }
-    }
-
-只换 cla_task.cla 时,只需 (1);换 bgtask_*.c / subcommon.c 才需要 (2)。
-注意:config_039.json 不进 git,每台机器各自配置(或干脆都放 custom_src)。
+这些大文件均被 .gitignore 排除,不会被提交。没有 config 键、不扫描本机其它路径。
 
 编译细节(已对原版 .o 验证)
 ---------------------------
