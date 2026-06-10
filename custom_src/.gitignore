@@ -1,0 +1,7 @@
+# custom_src holds user-provided sources compiled by update_custom_obj.py.
+# These are local inputs/artifacts, not part of the repo. Only README is tracked.
+build/
+*.o
+*.c
+*.cla
+*.h

@@ -25,7 +25,7 @@ BAR_NUM = RegConfig.BAR_NUM
 MR_NUM = RegConfig.MR_NUM
 OFF_NUM = RegConfig.OFF_NUM
 
-RESERVED_GR_REGS = {"GR0", "GR30"}
+RESERVED_GR_REGS = {"GR0", "GR29", "GR30"}
 
 
 def is_reserved_reg(reg):

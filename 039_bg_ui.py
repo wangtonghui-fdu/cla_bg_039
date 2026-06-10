@@ -311,6 +311,8 @@ def format_reference_compare_cell(summary: dict[str, Any]) -> str:
         return (
             f"{'PASS' if ref_compare.get('pass') else 'FAIL'} "
             f"real={ref_compare.get('real_mismatches', '')} "
+            f"舍入ign={ref_compare.get('known_rounding_mismatches', 0)} "
+            f"fsmac ign={ref_compare.get('known_fmac_mismatches', 0)} "
             f"ign={ref_compare.get('ignorable_reorder_cycles', '')}"
         )
     if reference_sim.get("status") in {"disabled", "skipped"} or not reference_sim:
@@ -337,7 +339,10 @@ def format_compare_brief(result: dict[str, Any]) -> str:
         ref_line = (
             f"模拟器/WO: {'PASS' if ref_compare.get('pass') else 'FAIL'} "
             f"writebacks={ref_compare.get('reference_writebacks', '')}/{ref_compare.get('rtl_writebacks', '')} "
-            f"real={ref_compare.get('real_mismatches', '')} ignore={ref_compare.get('ignorable_reorder_cycles', '')}\n"
+            f"real={ref_compare.get('real_mismatches', '')} "
+            f"舍入(ignore,Bug C)={ref_compare.get('known_rounding_mismatches', 0)} "
+            f"fsmac(ignore,融合MAC)={ref_compare.get('known_fmac_mismatches', 0)} "
+            f"ignore={ref_compare.get('ignorable_reorder_cycles', '')}\n"
         )
     elif reference_sim.get("status") in {"disabled", "skipped"} or not reference_sim:
         ref_line = "模拟器/WO: 未开启\n"
@@ -730,6 +735,53 @@ class LocalEnvWorker(QObject):
         return "'" + value.replace("'", "'\"'\"'") + "'"
 
 
+class UpdateObjWorker(QObject):
+    """Runs update_custom_obj.py (compile custom_src sources, swap cache .o)."""
+
+    log = Signal(str)
+    finished = Signal(bool, str)
+
+    @Slot()
+    def run(self) -> None:
+        script = SCRIPT_DIR / "update_custom_obj.py"
+        if not script.exists():
+            self.finished.emit(False, f"缺少脚本: {script}")
+            return
+        if getattr(sys, "frozen", False):
+            cmd = [sys.executable, "--run-python-script", str(script)]
+        else:
+            cmd = [sys.executable, str(script)]
+        env = os.environ.copy()
+        env["PYTHONIOENCODING"] = "utf-8"
+        self.log.emit("\n===== 更新 .o 文件 (custom_src) =====\n")
+        self.log.emit(f"命令: {' '.join(cmd)}\n")
+        try:
+            creationflags = subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0
+            proc = subprocess.Popen(
+                cmd,
+                cwd=str(SCRIPT_DIR),
+                env=env,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                text=True,
+                encoding="utf-8",
+                errors="replace",
+                bufsize=1,
+                creationflags=creationflags,
+            )
+        except Exception as exc:
+            self.finished.emit(False, f"启动失败: {exc}")
+            return
+        assert proc.stdout is not None
+        for line in proc.stdout:
+            self.log.emit(line)
+        returncode = proc.wait()
+        if returncode == 0:
+            self.finished.emit(True, "更新成功:后续仿真将链接新 .o")
+        else:
+            self.finished.emit(False, f"更新失败 (返回码 {returncode}),详见日志")
+
+
 class MainWindow(QMainWindow):
     def __init__(self) -> None:
         super().__init__()
@@ -743,6 +795,8 @@ class MainWindow(QMainWindow):
         self.thread: QThread | None = None
         self.local_env_worker: LocalEnvWorker | None = None
         self.local_env_thread: QThread | None = None
+        self.update_obj_worker: UpdateObjWorker | None = None
+        self.update_obj_thread: QThread | None = None
         self._build_ui()
         self._load_fields()
         self._restore_geometry()
@@ -789,7 +843,7 @@ class MainWindow(QMainWindow):
 
     def _build_run_group(self) -> QGroupBox:
         group = QGroupBox("仿真参数")
-        group.setMaximumHeight(195)
+        group.setMaximumHeight(225)
         layout = QGridLayout(group)
 
         self.instr_spin = QSpinBox()
@@ -819,6 +873,11 @@ class MainWindow(QMainWindow):
         self.source_button = QPushButton("指定random.s仿真")
         self.stop_button = QPushButton("停止当前仿真")
         self.open_button = QPushButton("打开输出目录")
+        self.update_obj_button = QPushButton("更新.o文件")
+        self.update_obj_button.setToolTip(
+            "编译 custom_src/ 里的 cla_task.cla / bgtask_interrupt.c / bgtask_notinterrupt.c / subcommon.c,"
+            "替换模板缓存中的对应 .o(原版自动备份为 *.orig.bak)。"
+        )
         self.stop_button.setEnabled(False)
 
         self.save_button.clicked.connect(self.save_all)
@@ -829,6 +888,7 @@ class MainWindow(QMainWindow):
         self.stop_button.clicked.connect(self.stop_current_run)
         self.open_button.clicked.connect(self.open_output_dir)
         self.auto_timeout_button.clicked.connect(self.apply_auto_timeout)
+        self.update_obj_button.clicked.connect(self.start_update_obj)
 
         form = QFormLayout()
         form.addRow("指令数", self.instr_spin)
@@ -847,6 +907,7 @@ class MainWindow(QMainWindow):
         layout.addWidget(self.source_button, 3, 1, 1, 2)
         layout.addWidget(self.stop_button, 4, 1)
         layout.addWidget(self.open_button, 4, 2)
+        layout.addWidget(self.update_obj_button, 5, 1, 1, 2)
         layout.setColumnStretch(0, 2)
         layout.setColumnStretch(1, 1)
         layout.setColumnStretch(2, 1)
@@ -1157,6 +1218,58 @@ class MainWindow(QMainWindow):
         self.local_env_thread = None
         self.local_env_worker = None
 
+    def start_update_obj(self) -> None:
+        if self.thread is not None or self.local_env_thread is not None or self.update_obj_thread is not None:
+            return
+        custom_dir = SCRIPT_DIR / "custom_src"
+        custom_dir.mkdir(exist_ok=True)
+        known = ("cla_task.cla", "bgtask_interrupt.c", "bgtask_notinterrupt.c", "subcommon.c")
+        if not any((custom_dir / name).exists() for name in known):
+            QMessageBox.information(
+                self,
+                "更新.o文件",
+                f"请先把要替换的源文件放到:\n{custom_dir}\n\n"
+                "支持的文件名(可放任意子集):\n  " + "\n  ".join(known) + "\n\n"
+                "源码需要的头文件(如 subcommon.h)也放在该目录。目录已自动创建。",
+            )
+            QDesktopServices.openUrl(QUrl.fromLocalFile(str(custom_dir)))
+            return
+        self._set_running(True)
+        self.stop_button.setEnabled(False)
+        self.update_obj_button.setText("更新中...")
+        self.update_obj_button.setStyleSheet("")
+
+        self.update_obj_worker = UpdateObjWorker()
+        self.update_obj_thread = QThread(self)
+        self.update_obj_worker.moveToThread(self.update_obj_thread)
+        self.update_obj_thread.started.connect(self.update_obj_worker.run)
+        self.update_obj_worker.log.connect(self._append_log)
+        self.update_obj_worker.finished.connect(self._on_update_obj_finished)
+        self.update_obj_worker.finished.connect(self.update_obj_thread.quit)
+        self.update_obj_worker.finished.connect(self.update_obj_worker.deleteLater)
+        self.update_obj_thread.finished.connect(self.update_obj_thread.deleteLater)
+        self.update_obj_thread.finished.connect(self._clear_update_obj_thread)
+        self.update_obj_thread.start()
+
+    @Slot(bool, str)
+    def _on_update_obj_finished(self, ok: bool, message: str) -> None:
+        self._set_running(False)
+        self.update_obj_button.setText("更新.o文件")
+        if ok:
+            self.update_obj_button.setStyleSheet(
+                "QPushButton { background-color: #1f9d55; color: white; font-weight: 600; }"
+            )
+        else:
+            self.update_obj_button.setStyleSheet(
+                "QPushButton { background-color: #b91c1c; color: white; font-weight: 600; }"
+            )
+        self.status_label.setText(message)
+
+    @Slot()
+    def _clear_update_obj_thread(self) -> None:
+        self.update_obj_thread = None
+        self.update_obj_worker = None
+
     def stop_current_run(self) -> None:
         if self.worker is not None:
             self.worker.stop()
@@ -1190,9 +1303,10 @@ class MainWindow(QMainWindow):
         self.unpack_pipes_check.setEnabled(not running)
         self.reference_compare_check.setEnabled(not running)
         self.auto_timeout_button.setEnabled(not running)
+        self.update_obj_button.setEnabled(not running)
 
     def closeEvent(self, event) -> None:  # type: ignore[override]
-        if self.thread is not None or self.local_env_thread is not None:
+        if self.thread is not None or self.local_env_thread is not None or self.update_obj_thread is not None:
             choice = QMessageBox.question(self, "退出", "任务仍在运行，是否停止并退出？")
             if choice != QMessageBox.Yes:
                 event.ignore()
