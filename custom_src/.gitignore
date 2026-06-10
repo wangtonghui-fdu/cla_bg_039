@@ -1,7 +1,5 @@
-# custom_src holds user-provided sources compiled by update_custom_obj.py.
-# These are local inputs/artifacts, not part of the repo. Only README is tracked.
-build/
-*.o
-*.c
-*.cla
-*.h
+# custom_src holds user-provided sources, the dropped-in QX toolchain/template,
+# and build artifacts — all local-only. Only README and this file are tracked.
+*
+!README.txt
+!.gitignore

@@ -19,24 +19,31 @@ custom_src — 自定义 C/CLA 源码,本地编译并替换测试镜像里的 .o
 
 依赖(git 不含编译器和头文件,需本机提供)
 ------------------------------------------
-1) QX-IDE 的 qxdsp 工具链(clang,3slot_320f)——随 QX-IDE 安装,不在仓库里。
-   它同时提供编译器 + 模板头(cla_task.cla 需要的 cpu.h/__clatask、driverlib、device)。
+1) QX-IDE 的 qxdsp 工具链(clang,3slot_320f)。它同时提供编译器 + 模板头
+   (cla_task.cla 需要的 cpu.h/__clatask、driverlib、device)。
 2) 驱动库源码树——提供 common.h / subcommon.h(bgtask_*.c 和 subcommon.c 需要;
-   cla_task.cla 不需要)。例如新克隆的 software_lib_driver(-039_v1_dev) 整个目录。
+   cla_task.cla 不需要)。例如克隆的 software_lib_driver(-039_v1_dev) 整个目录。
 
-脚本会自动查找(扫各盘的 QX-IDE 安装、以及仓库旁边/本地的驱动库树);找不到时
-会明确报 WARNING 指出缺哪个。强烈建议在 config_039.json 里显式指定:
+★ 最省事的做法:把它们直接下载/拷贝到本目录(custom_src)即可,零配置:
+      custom_src/qxtools/...           ← QX-IDE 插件里整个 qxtools 文件夹
+                                          (含 toolchain/3slot_320f 和 template,一次搞定 1+模板)
+   或 custom_src/3slot_320f/...        ← 只拷工具链(模板再单拷或装 QX-IDE)
+   或 custom_src/software_lib_driver-039_v1_dev/...   ← 驱动库树(含 libs/ + autotests/)
+   这些大文件已被 .gitignore 排除,不会被提交。
+
+脚本查找顺序:custom_src 内 → config_039.json 指定 → 扫描各盘的 QX-IDE 安装。
+找不到时会明确 WARNING 指出缺哪个。config 显式指定(可选):
 
     "local": {
         "custom_obj": {
             "toolchain_dir": "<...>/qxtools/toolchain/3slot_320f",
-            "template_dir":  "<...>/qxtools/template/QXS320F280039/Empty",   (可选,默认从 toolchain 推出)
-            "driverlib_dir": "<...>/software_lib_driver-039_v1_dev"          (含 libs/ 和 autotests/)
+            "template_dir":  "<...>/qxtools/template/QXS320F280039/Empty",
+            "driverlib_dir": "<...>/software_lib_driver-039_v1_dev"
         }
     }
 
-只换 cla_task.cla 时,只需 (1) QX-IDE;换 bgtask_*.c / subcommon.c 才需要 (2) 驱动库树。
-注意:config_039.json 不进 git,每台机器需自行配置。
+只换 cla_task.cla 时,只需 (1);换 bgtask_*.c / subcommon.c 才需要 (2)。
+注意:config_039.json 不进 git,每台机器各自配置(或干脆都放 custom_src)。
 
 编译细节(已对原版 .o 验证)
 ---------------------------
