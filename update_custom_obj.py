@@ -55,12 +55,24 @@ TARGETS: dict[str, list[str]] = {
     ],
 }
 
-# Known QX-IDE install roots to scan when config gives no toolchain path.
-TOOLCHAIN_GLOBS = [
-    "G:/QX/QX-IDE_v*/QX-IDE/plugins/QXTOOLS_*/qxtools/toolchain/3slot_320f",
-    "C:/QX-IDE/plugins/QXTOOLS_*/qxtools/toolchain/3slot_320f",
-    "D:/qx/QX-IDE/plugins/QXTOOLS_*/qxtools/toolchain/3slot_320f",
-]
+# QX-IDE clang toolchain (3slot_320f) is NOT in the repo — it ships with QX-IDE.
+# Preferred: config_039.json local.custom_obj.toolchain_dir. As a fallback, scan
+# common install roots on every drive (the plugin build number varies, so glob it).
+def _toolchain_globs() -> list[str]:
+    import string
+    tails = [
+        "QX-IDE_v*/QX-IDE/plugins/QXTOOLS_*/qxtools/toolchain/3slot_320f",
+        "QX-IDE*/QX-IDE/plugins/QXTOOLS_*/qxtools/toolchain/3slot_320f",
+        "QX-IDE/plugins/QXTOOLS_*/qxtools/toolchain/3slot_320f",
+        "qx/QX-IDE/plugins/QXTOOLS_*/qxtools/toolchain/3slot_320f",
+        "QX/QX-IDE_v*/QX-IDE/plugins/QXTOOLS_*/qxtools/toolchain/3slot_320f",
+        "Program Files*/QX-IDE/plugins/QXTOOLS_*/qxtools/toolchain/3slot_320f",
+    ]
+    roots = [f"{d}:/" for d in string.ascii_uppercase]
+    return [r + t for r in roots for t in tails]
+
+
+TOOLCHAIN_GLOBS = _toolchain_globs()
 
 
 def load_custom_cfg() -> dict:
@@ -88,23 +100,74 @@ def find_toolchain(cfg: dict) -> Path | None:
     return None
 
 
-def include_dirs(toolchain: Path, cfg: dict) -> list[Path]:
-    template = cfg.get("template_dir")
+def find_template(toolchain: Path, cfg: dict) -> Path | None:
+    configured = cfg.get("template_dir")
+    if configured:
+        p = Path(configured)
+        return p if p.is_dir() else None
+    # default plugin layout: <plugin>/qxtools/toolchain/3slot_320f
+    #                    and <plugin>/qxtools/template/QXS320F280039/Empty
+    cand = toolchain.parent.parent / "template" / "QXS320F280039" / "Empty"
+    return cand if cand.is_dir() else None
+
+
+def find_driverlib_tree(cfg: dict) -> Path | None:
+    """A driver-lib source tree that provides the test headers (common.h,
+    subcommon.h, driverlib/device). Needed to compile bgtask_*.c / subcommon.c.
+    cla_task.cla does NOT need it (only IDE-template headers)."""
+    configured = cfg.get("driverlib_dir")
+    if configured:
+        p = Path(configured)
+        return p if p.is_dir() else None
+    # fall back to local trees that may be present (gitignored / side-cloned)
+    for cand in (
+        SCRIPT_DIR / "_not_upload_scripts" / "software_lib_driver_2803x-main",
+        SCRIPT_DIR.parent / "software_lib_driver-039_v1_dev" / "software_lib_driver-039_v1_dev",
+    ):
+        if (cand / "libs").is_dir() or (cand / "autotests").is_dir():
+            return cand
+    return None
+
+
+def include_dirs(toolchain: Path, cfg: dict) -> tuple[list[Path], list[str]]:
+    """Return (existing include dirs, warnings about missing pieces)."""
+    incs: list[Path] = [CUSTOM_SRC, toolchain / "include"]
+    warns: list[str] = []
+
+    template = find_template(toolchain, cfg)
     if template:
-        template = Path(template)
+        incs += [
+            template / "libs" / "driverlib",
+            template / "libs" / "driverlib" / "bit_field",
+            template / "libs" / "device",
+        ]
     else:
-        # plugin layout: <plugin>/qxtools/toolchain/3slot_320f
-        #            and <plugin>/qxtools/template/QXS320F280039/Empty
-        template = toolchain.parent.parent / "template" / "QXS320F280039" / "Empty"
-    incs = [
-        CUSTOM_SRC,
-        template / "libs" / "driverlib",
-        template / "libs" / "driverlib" / "bit_field",
-        template / "libs" / "device",
-        SCRIPT_DIR / "_not_upload_scripts" / "software_lib_driver_2803x-main" / "autotests",
-        toolchain / "include",
-    ]
-    return [p for p in incs if p.is_dir()]
+        warns.append(
+            "找不到 QX-IDE 模板 (QXS320F280039/Empty/libs)。cla_task.cla 需要其 cpu.h 里的 "
+            "__clatask 宏。请在 config_039.json 的 local.custom_obj.template_dir 指定。"
+        )
+
+    dl = find_driverlib_tree(cfg)
+    if dl:
+        for sub in ("libs/driverlib", "libs/driverlib/bit_field", "libs/device", "autotests"):
+            d = dl / sub
+            if d.is_dir():
+                incs.append(d)
+    else:
+        warns.append(
+            "找不到驱动库源码树 (提供 common.h / subcommon.h)。bgtask_*.c 与 subcommon.c 需要它;"
+            "cla_task.cla 不需要。请在 config_039.json 的 local.custom_obj.driverlib_dir 指定一个含 "
+            "libs/ 和 autotests/ 的目录(如新克隆的 software_lib_driver-039_v1_dev)。"
+        )
+
+    # de-dup, keep order, only existing
+    seen: set[str] = set()
+    out: list[Path] = []
+    for p in incs:
+        if p.is_dir() and str(p) not in seen:
+            seen.add(str(p))
+            out.append(p)
+    return out, warns
 
 
 def compile_one(clang: Path, src: Path, out: Path, incs: list[Path]) -> bool:
@@ -185,9 +248,11 @@ def main(argv: list[str]) -> int:
         log(r'  "custom_obj": {"toolchain_dir": "G:/QX/QX-IDE_v1.8.2c_windows_x86_64/QX-IDE/plugins/QXTOOLS_1.0.0.202606090835/qxtools/toolchain/3slot_320f"}')
         return 1
     clang = toolchain / "bin" / "clang.exe"
-    incs = include_dirs(toolchain, cfg)
+    incs, warns = include_dirs(toolchain, cfg)
     log(f"toolchain: {toolchain}")
     log("includes : " + "; ".join(str(p) for p in incs))
+    for w in warns:
+        log("WARNING: " + w)
 
     build_dir = CUSTOM_SRC / "build"
     build_dir.mkdir(exist_ok=True)
